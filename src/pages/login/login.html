@@ -1,0 +1,31 @@
+<ion-content class="card-background-page">
+  <ion-card>
+   <img src="/assets/imgs/login_image.gif">
+  </ion-card>
+</ion-content> 
+
+<ion-content padding center text-center>
+  <ion-title>Login</ion-title>
+  <ion-list>
+    <ion-item>
+    <ion-select [(ngModel)]="countryCode">
+      <ion-option value="cn">+86</ion-option>
+      <ion-option value="us">+1</ion-option>
+      <ion-option value="in">+91</ion-option>
+    </ion-select>
+    <ion-input type="number" placeholder="Enter Mobile Number"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-input type="text" placeholder="Enter OTP Sent to your mobile">
+    </ion-input>
+    <button class="verifyBtn"  ion-button item-end icon-start >Verify</button>
+    </ion-item>
+    <ion-item>
+      <a href=""   padding left text-left>Sign Up</a>
+      <a href=""   padding right text-right>Forget Password</a>
+    </ion-item>
+
+    </ion-list>
+   <button class="loginSubmit" ion-button full  click="HomePage()">Login</button>
+</ion-content>
+
