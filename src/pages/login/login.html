@@ -5,7 +5,7 @@
 </ion-content> 
 
 <ion-content padding center text-center>
-  <ion-title>Login</ion-title>
+  <ion-title></ion-title>
   <ion-list>
     <ion-item>
     <ion-select [(ngModel)]="countryCode">
@@ -20,12 +20,17 @@
     </ion-input>
     <button class="verifyBtn"  ion-button item-end icon-start >Verify</button>
     </ion-item>
-    <ion-item>
-      <a href=""   padding left text-left>Sign Up</a>
-      <a href=""   padding right text-right>Forget Password</a>
+      <ion-item>
+      <a  href="" >Sign Up</a>
+      <a  item-end icon-start href="">Forget Password</a>
     </ion-item>
-
     </ion-list>
    <button class="loginSubmit" ion-button full  click="HomePage()">Login</button>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>Footer</ion-title>
+    </ion-toolbar>
+  </ion-footer>
 
