@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { FormBuilder, FormGroup, Validators,AbstractControl,FormControl} from '@angular/forms';
+import { WindowService } from '../window.service';
+
 
 @Component({
   selector: 'page-login',

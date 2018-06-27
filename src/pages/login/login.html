@@ -13,12 +13,12 @@
       <ion-option value="us">+1</ion-option>
       <ion-option value="in">+91</ion-option>
     </ion-select>
-    <ion-input type="number" placeholder="Enter Mobile Number"></ion-input>
+    <ion-input type="text"  [(ngModel)]="phoneNumber"  placeholder="Enter Mobile Number" maxlength="13"></ion-input>
     </ion-item>
     <ion-item>
     <ion-input type="text" placeholder="Enter OTP Sent to your mobile">
     </ion-input>
-    <button class="verifyBtn"  ion-button item-end icon-start >Verify</button>
+    <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode()" >Verify</button>
     </ion-item>
       <ion-item>
       <a  href="" >Sign Up</a>
