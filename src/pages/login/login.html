@@ -16,13 +16,14 @@
     <ion-input type="text"  [(ngModel)]="phoneNumber"  placeholder="Enter Mobile Number" maxlength="13"></ion-input>
     </ion-item>
     <ion-item>
-    <ion-input type="text" placeholder="Enter OTP Sent to your mobile">
+    <ion-input type="text" name="otp" [(ngModel)]="verificationCode" placeholder="Enter OTP Sent to your mobile">
     </ion-input>
     <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode()" >Verify</button>
     </ion-item>
       <ion-item>
-      <a  href="" >Sign Up</a>
-      <a  item-end icon-start href="">Forget Password</a>
+      <a  href="">Forget Password</a>
+      <a item-end icon-start  href="" >Sign Up</a>
+      
     </ion-item>
     </ion-list>
    <button class="loginSubmit" ion-button full  click="HomePage()">Login</button>
