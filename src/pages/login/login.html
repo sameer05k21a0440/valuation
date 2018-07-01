@@ -1,37 +1,66 @@
-<ion-content class="card-background-page">
-  <ion-card>
-   <img src="/assets/imgs/login_image.gif">
-  </ion-card>
-</ion-content> 
+<!-- <ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Sign Up 
+    </ion-title>
+
+  </ion-navbar>
+</ion-header> -->
+  
+  <ion-content class="card-background-page">
+    <ion-card>
+      <a href="http://www.rongdaitong.cn/">
+       <img src="../assets/imgs/login_logo.jpg" alt="logo" />
+      </a>
+    </ion-card>
+  </ion-content> 
+
+
 
 <ion-content padding center text-center>
   <ion-title></ion-title>
+  <form [formGroup]="loginFormGroup" (ngSubmit)="HomePage()"> 
   <ion-list>
-    <ion-item>
-    <ion-select [(ngModel)]="countryCode">
-      <ion-option value="cn">+86</ion-option>
-      <ion-option value="us">+1</ion-option>
-      <ion-option value="in">+91</ion-option>
-    </ion-select>
-    <ion-input type="text"  [(ngModel)]="phoneNumber"  placeholder="Enter Mobile Number" maxlength="13"></ion-input>
+     <ion-item>
+  <ion-label color="primary" floating>Enter Mobile Number</ion-label> 
+    <ion-input type="tel" name="phoneNumber" formControlName="telNumber">
+    </ion-input>
     </ion-item>
     <ion-item>
-    <ion-input type="text" name="otp" [(ngModel)]="verificationCode" placeholder="Enter OTP Sent to your mobile">
+    <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
+    <ion-input clearInput type="text" formControlName="verificationCode"  >
     </ion-input>
     <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode()" >Verify</button>
     </ion-item>
       <ion-item>
-      <a  href="">Forget Password</a>
-      <a item-end icon-start  href="" >Sign Up</a>
+      <a  (click)="forgetPassword()">Forget Password?</a>
+      <a (click)="signUp()"  item-end icon-start>Sign Up</a>
       
     </ion-item>
     </ion-list>
-   <button class="loginSubmit" ion-button full  click="HomePage()">Login</button>
+   <button ion-button full type="submit" class="loginSubmit" [disabled]="!loginFormGroup.valid" >Login</button>
+  </form>
 </ion-content>
 
-<ion-footer>
+
+
+
+ <!-- <ion-content padding center text-center>
+  <ion-footer>
     <ion-toolbar>
-      <ion-title style="text-align:center;  position: relative; ">ⒸRongdaitong 2018-2019</ion-title>
+      <ion-title>ⒸRongdaitong 2018-2019</ion-title>
     </ion-toolbar>
   </ion-footer>
+ </ion-content> -->
+
+
+ <ion-footer>
+  <ion-grid no-padding>
+      <ion-row>
+          <ion-col no-padding>
+            ⒸRongdaitong 2018-2019
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-footer>
 
