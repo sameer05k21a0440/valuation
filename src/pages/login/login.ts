@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController,ToastController,NavParams  } from 'ionic-angular';
 
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators,FormControl} from '@angular/forms';
 import { SMS } from '@ionic-native/sms';
 import { TabsPage } from '../tabs/tabs';
 
@@ -16,6 +16,8 @@ export class LoginPage {
   phoneNumber:number;
   private loginFormGroup:FormGroup;
   rootPage:any = TabsPage;
+  countryCodeAlertOpts:{title:string};
+
   constructor(public navCtrl: NavController,public navParams: NavParams,private toast:ToastController,private sms: SMS,private formBuilder: FormBuilder,private tabs: TabsPage ) {
 
     this.loginFormGroup=this.formBuilder.group({
@@ -23,6 +25,10 @@ export class LoginPage {
       verificationCode:['',Validators.required]
 
     });
+
+    this.countryCodeAlertOpts={
+      title:'Please Select Country Code'
+    }
 
   }
 

@@ -22,13 +22,16 @@
   <form [formGroup]="loginFormGroup" (ngSubmit)="HomePage()"> 
   <ion-list>
      <ion-item>
-  <ion-label color="primary" floating>Enter Mobile Number</ion-label> 
-    <ion-input type="tel" name="phoneNumber" formControlName="telNumber">
+    <ion-select [(ngModel)]="countryCode" [selectOptions]="countryCodeAlertOpts">
+        <ion-option>Alice in Chains</ion-option>
+      </ion-select>
+   <ion-label color="primary" floating>Enter Mobile Number</ion-label> 
+    <ion-input type="tel" name="phoneNumber"  formControlName="telNumber">
     </ion-input>
     </ion-item>
     <ion-item>
     <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
-    <ion-input clearInput type="text" formControlName="verificationCode"  >
+    <ion-input clearInput type="text"  formControlName="verificationCode"  >
     </ion-input>
     <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode()" >Verify</button>
     </ion-item>
