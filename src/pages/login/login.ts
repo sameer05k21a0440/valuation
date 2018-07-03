@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { NavController,ToastController,NavParams  } from 'ionic-angular';
 
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
-import { SMS } from '@ionic-native/sms';
 import { TabsPage } from '../tabs/tabs';
+
+import * as firebase  from 'firebase';
+import {Firebase} from '@ionic-native/firebase';
 
 
 
@@ -12,13 +14,14 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  countryCode:string ="cn";
+  countryCode:any ="cn";
   phoneNumber:number;
   verificationCode:number;
+  verificationId:any;
   private loginFormGroup:FormGroup;
   rootPage:any = TabsPage;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,private toast:ToastController,private sms: SMS,private formBuilder: FormBuilder ) {
+  constructor(public navCtrl: NavController,public navParams: NavParams,private toast:ToastController,public firebase: Firebase,private formBuilder: FormBuilder ) {
 
     this.loginFormGroup=this.formBuilder.group({
       telNumber:new FormControl('',Validators.compose([Validators.required])),
@@ -31,44 +34,16 @@ export class LoginPage {
     alert(selectedValue);
   }
 
-      async sendLoginCode(){
-        try{
-          
-    if(String(this.phoneNumber)!='' && String(this.phoneNumber)!='undefined'  && String(this.verificationCode)!=''){
-    //CONFIGURATION
-    var options = {
-      replaceLineBreaks: true, // true to replace \n by a new line, false by default
-      android: {
-          intent: ''  // send SMS with the native android SMS messaging  INTENT
-          //intent: '' // send SMS without open any other app
-      }
-    }
-    //alert(String(this.countryCode+this.phoneNumber));
-    await this.sms.send(this.countryCode+String(+91+this.phoneNumber),'Hi Welcome',options);
-    alert("wel"+options);
-
-    const toast=this.toast.create({
-    message: 'Text Was Send',
-    duration:3000
+  sendLoginCode(phoneNumber:number){
+    //getVerificationID  verifyPhoneNumber
+    (<any>window).FirebasePlugin.verifyPhoneNumber(phoneNumber,60,(credential)=>{
+      alert("SMS SENT Successfully");
+      console.log(credential);
+      this.verificationId=credential.verificationId;
+    },function(error){
+      console.log(error);
     });
-    toast.present();
-    }else{
-      alert(String(this.countryCode+this.phoneNumber)+"LLLL");
-      const toast=this.toast.create({
-        message: 'Please Enter Mobile & OTP Code',
-        duration:3000
-      });
-      toast.present();
-    }
-    }catch(err){
-      alert(JSON.stringify(err)+"error"+this.countryCode+this.phoneNumber)
-       const toast=this.toast.create({
-        message:'Text was not Send',
-        duration:3000
-       });
-       toast.present();
-       
-    }}
+  }
 
   public  forgetPassword(){
     alert("welcome forget page");
@@ -80,8 +55,16 @@ export class LoginPage {
   }
   public HomePage(){
     alert("Welcome HOME"+this.loginFormGroup.value);
+    let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
+    firebase.auth().signInWithCredential(signInCredential).then((info)=>{
+      console.log("Successully Send Message"+info)
 
-    this.navCtrl.push(this.rootPage);
+      this.navCtrl.push(this.rootPage);
+      
+    },function (error){
+      console.log("Error On Credentials"+error);
+    });
+    
     
   }
 

@@ -22,27 +22,21 @@
   <form [formGroup]="loginFormGroup"> 
   <ion-list>
     <ion-item> 
-    <ion-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="countryCode" (change)="onChangeCountryCode(countryCode)">
+    <!-- <ion-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="countryCode" (change)="onChangeCountryCode(countryCode)">
         <ion-option value="cn">+86</ion-option>
         <ion-option value="us">+1</ion-option>
         <ion-option value="in">+91</ion-option>
-      </ion-select>
-
-      <ion-input type="tel" autofocus  class="form-control" placeholder="Enter Mobile Number" name="phoneNumber" [(ngModel)]="phoneNumber" 
+      </ion-select> -->
+      <ion-label color="primary" floating>Enter Mobile Number</ion-label>
+      <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
         formControlName="telNumber">
-    </ion-input>
-      <!-- (ngSubmit)=""  <ion-label   color="primary" floating>Enter Mobile Number</ion-label>
-        <ion-input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phoneNumber" [(ngModel)]="phoneNumber" 
-        formControlName="telNumber">
-       </ion-input> -->
-  
-  
+    </ion-input>  
     </ion-item>
     <ion-item>
     <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
     <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verifyCode"  >
     </ion-input>
-    <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode()" >Verify</button>
+    <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button>
     </ion-item>
       <ion-item>
       <a  (click)="forgetPassword()">Forget Password?</a>
