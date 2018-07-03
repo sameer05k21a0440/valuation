@@ -19,19 +19,28 @@
 
 <ion-content padding center text-center>
   <ion-title></ion-title>
-  <form [formGroup]="loginFormGroup" (ngSubmit)="HomePage()"> 
+  <form [formGroup]="loginFormGroup"> 
   <ion-list>
-     <ion-item>
-    <ion-select [(ngModel)]="countryCode" [selectOptions]="countryCodeAlertOpts">
-        <ion-option>Alice in Chains</ion-option>
+    <ion-item> 
+    <ion-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="countryCode" (change)="onChangeCountryCode(countryCode)">
+        <ion-option value="cn">+86</ion-option>
+        <ion-option value="us">+1</ion-option>
+        <ion-option value="in">+91</ion-option>
       </ion-select>
-   <ion-label color="primary" floating>Enter Mobile Number</ion-label> 
-    <ion-input type="tel" name="phoneNumber"  formControlName="telNumber">
+
+      <ion-input type="tel" autofocus  class="form-control" placeholder="Enter Mobile Number" name="phoneNumber" [(ngModel)]="phoneNumber" 
+        formControlName="telNumber">
     </ion-input>
+      <!-- (ngSubmit)=""  <ion-label   color="primary" floating>Enter Mobile Number</ion-label>
+        <ion-input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phoneNumber" [(ngModel)]="phoneNumber" 
+        formControlName="telNumber">
+       </ion-input> -->
+  
+  
     </ion-item>
     <ion-item>
     <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
-    <ion-input clearInput type="text"  formControlName="verificationCode"  >
+    <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verifyCode"  >
     </ion-input>
     <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode()" >Verify</button>
     </ion-item>
@@ -39,26 +48,14 @@
       <a  (click)="forgetPassword()">Forget Password?</a>
       <a (click)="signUp()"  item-end icon-start>Sign Up</a>
       
-    </ion-item>
+    </ion-item> 
     </ion-list>
-   <button ion-button full type="submit" class="loginSubmit" [disabled]="!loginFormGroup.valid" >Login</button>
+   <button ion-button full type="submit" (click)="HomePage()" class="loginSubmit" [disabled]="!loginFormGroup.valid" >Login</button>
   </form>
 </ion-content>
 
-
-
-
- <!-- <ion-content padding center text-center>
-  <ion-footer>
-    <ion-toolbar>
-      <ion-title>ⒸRongdaitong 2018-2019</ion-title>
-    </ion-toolbar>
-  </ion-footer>
- </ion-content> -->
-
-
  <ion-footer>
-  <ion-grid no-padding>
+  <ion-grid padding center text-center>
       <ion-row>
           <ion-col no-padding>
             ⒸRongdaitong 2018-2019

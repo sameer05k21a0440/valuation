@@ -1,9 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
+import  {ReactiveFormsModule} from '@angular/forms';
+
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -16,6 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SMS } from '@ionic-native/sms';
+import { SearchDataProvider } from '../providers/search-data/search-data';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { SMS } from '@ionic-native/sms';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     ReactiveFormsModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -39,13 +44,15 @@ import { SMS } from '@ionic-native/sms';
     ContactPage,
     HomePage,
     TabsPage
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
     SMS,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TabsPage
+    TabsPage,
+    SearchDataProvider
   ]
 })
 export class AppModule {}
