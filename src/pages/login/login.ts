@@ -36,7 +36,7 @@ export class LoginPage {
 
   sendLoginCode(phoneNumber:number){
     //getVerificationID  verifyPhoneNumber
-    (<any>window).FirebasePlugin.verifyPhoneNumber(phoneNumber,60,(credential)=>{
+    (<any>window).FirebasePlugin.verifyPhoneNumber("+91"+phoneNumber,60,(credential)=>{
       alert("SMS SENT Successfully");
       console.log(credential);
       this.verificationId=credential.verificationId;

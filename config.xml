@@ -83,7 +83,6 @@
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <allow-navigation href="http://172.20.10.8:8100" />
     <plugin name="cordova-sms-plugin" spec="^0.1.11" />
-    <engine name="android" spec="7.0.0" />
-    <engine name="ios" spec="4.5.4" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
+    <engine name="android" spec="~7.0.0" />
 </widget>
