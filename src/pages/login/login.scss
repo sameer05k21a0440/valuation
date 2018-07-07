@@ -12,7 +12,7 @@
 page-login{
   ion-title   {
     margin-top :50h;
-    margin-bottom: 25vh;
+    margin-bottom: 20vh;
   }
 };
 .verifyBtn{
@@ -25,4 +25,17 @@ page-login{
   position: relative;
   text-align: center;
   background-color: darkorange
+}
+.validator-error {
+  color: color($colors, danger);
+  padding-top: 8px;
+  padding-left: 16px;
+}
+.fab-container {
+  position: relative;
+}
+.commonLogoSize{
+  width: 60px;
+  height:60px;
+  font-size: 35px;
 }

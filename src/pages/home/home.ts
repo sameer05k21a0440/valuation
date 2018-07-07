@@ -1,30 +1,25 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import {SearchDataProvider} from '../../providers/search-data/search-data';
+/**
+ * Generated class for the HomePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
-  searchQuery: string = '';
-  items: any;
 
-  constructor(public navCtrl: NavController, private searchDataService:SearchDataProvider) {
-    //this.initializeItems();
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  // initializeItems() {
-  //   this.items = [
-  //         'Main Industry',
-  //         'Secondary Industry'
-  //   ];};
-
-  setFilteredItems() {
- 
-    this.items = this.searchDataService.filterItems(this.searchQuery);
-
-}
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+  }
 
 }

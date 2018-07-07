@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,ToastController,NavParams  } from 'ionic-angular';
+import { NavController,NavParams  } from 'ionic-angular';
 
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
 import { TabsPage } from '../tabs/tabs';
@@ -18,10 +18,11 @@ export class LoginPage {
   phoneNumber:number;
   verificationCode:number;
   verificationId:any;
+  rememberLogin:boolean;
   private loginFormGroup:FormGroup;
   rootPage:any = TabsPage;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,private toast:ToastController,public firebase: Firebase,private formBuilder: FormBuilder ) {
+  constructor(public navCtrl: NavController,public navParams: NavParams,public firebase: Firebase,private formBuilder: FormBuilder ) {
 
     this.loginFormGroup=this.formBuilder.group({
       telNumber:new FormControl('',Validators.compose([Validators.required])),
@@ -29,20 +30,21 @@ export class LoginPage {
     });
 
   }
-  onChangeCountryCode(selectedValue){
-    console.info("Selected:",selectedValue);
-    alert(selectedValue);
-  }
 
   sendLoginCode(phoneNumber:number){
-    //getVerificationID  verifyPhoneNumber
-    (<any>window).FirebasePlugin.verifyPhoneNumber("+91"+phoneNumber,60,(credential)=>{
-      alert("SMS SENT Successfully");
-      console.log(credential);
-      this.verificationId=credential.verificationId;
-    },function(error){
-      console.log(error);
-    });
+  if(String(this.phoneNumber) !="undefined"){
+  //getVerificationID  verifyPhoneNumber
+  (<any>window).FirebasePlugin.verifyPhoneNumber("+91"+phoneNumber,60,(credential)=>{
+    alert("SMS SENT Successfully");
+    console.log(credential);
+    this.verificationId=credential.verificationId;
+  },function(error){
+    console.log(error);
+  });
+     }else{
+       alert("Please enter mobile number");
+     }
+  
   }
 
   public  forgetPassword(){

@@ -15,8 +15,6 @@
     </ion-card>
   </ion-content> 
 
-
-
 <ion-content padding center text-center>
   <ion-title></ion-title>
   <form [formGroup]="loginFormGroup"> 
@@ -31,6 +29,11 @@
       <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
         formControlName="telNumber">
     </ion-input>  
+    <div *ngIf="!loginFormGroup.controls.telNumber.valid &&
+          loginFormGroup.controls.telNumber.dirty"
+        class="validator-error">
+      Please enter a valid Mobile.
+    </div>
     </ion-item>
     <ion-item>
     <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
@@ -39,12 +42,34 @@
     <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button>
     </ion-item>
       <ion-item>
-      <a  (click)="forgetPassword()">Forget Password?</a>
-      <a (click)="signUp()"  item-end icon-start>Sign Up</a>
-      
-    </ion-item> 
-    </ion-list>
+      <ion-label style="color:gray;">Remember Me</ion-label>
+       <ion-checkbox  class="form-control" name="rememberLogin">
+       </ion-checkbox>
+      </ion-item>
    <button ion-button full type="submit" (click)="HomePage()" class="loginSubmit" [disabled]="!loginFormGroup.valid" >Login</button>
+   <ion-item>
+    <ion-row> 
+      <div class="fab-container">
+      <ion-col text-center>
+        <button  ion-button clear color="dark" (click)="forgetPassword()">Forget Password?</button>
+        <button ion-button clear    color="dark"  (click)="signUp()">Sign Up?</button>
+        </ion-col>
+      </div>
+    </ion-row>
+   </ion-item>
+    <ion-row>
+      <div class="fab-container" style="padding-top: 70px;">
+        <ion-fab left bottom>
+           <button   ion-fab color="primary"><ion-icon name="log-in"></ion-icon></button>
+          <ion-fab-list side="right">
+            <button ion-fab color="secondary" (click)="wechatShare(login)"><ion-icon name="custom-wechat"></ion-icon></button>
+            <button ion-fab color="primary"><ion-icon name="custom-qq"></ion-icon></button>
+            <button ion-fab color="danger"><ion-icon name="custom-weibo"></ion-icon></button>
+          </ion-fab-list>
+        </ion-fab>
+      </div>
+    </ion-row> 
+    </ion-list>
   </form>
 </ion-content>
 

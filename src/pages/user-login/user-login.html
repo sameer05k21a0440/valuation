@@ -1,0 +1,80 @@
+<!-- 
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>userLogin</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+ <ion-content class="card-background-page">
+    <ion-card>
+      <a href="http://www.rongdaitong.cn/">
+       <img src="../assets/imgs/login_logo.jpg" alt="logo" />
+      </a>
+    </ion-card>
+  </ion-content> 
+  
+   <ion-content padding center text-center>
+    <ion-title></ion-title>
+  <form [formGroup]="userLoginFormGroup"> 
+    <ion-item>
+    <ion-label color="primary" floating>Enter User Name</ion-label>
+    <ion-input autofocus clearInput type="text"   class="form-control" name="userName" [(ngModel)]="userName" 
+        formControlName="userName"></ion-input>
+    </ion-item>
+    <div *ngIf="!userLoginFormGroup.controls.userName.valid &&
+    (userLoginFormGroup.controls.userName.dirty || submitted)" class="validator-error">
+  Please enter a valid user name.
+   </div>
+    <ion-item>
+        <ion-label color="primary" floating>Enter Password</ion-label>
+        <ion-input autofocus clearInput type="password"   class="form-control" name="password" [(ngModel)]="password" 
+            formControlName="password"></ion-input>
+  </ion-item>
+  <div *ngIf="userLoginFormGroup.controls.password.hasError('pattern') &&
+  (userLoginFormGroup.controls.password.dirty || submitted)"
+  class="validator-error">
+Passwords should be at least 8 characters long and contain one number, one character and one special character.
+</div>
+<ion-item>
+    <ion-label style="color:gray;">Remember Me</ion-label>
+     <ion-checkbox  class="form-control" name="rememberLogin">
+     </ion-checkbox>
+  </ion-item>
+  <button ion-button full type="submit" (click)="HomePage()" class="userLoginSubmit" [disabled]="!userLoginFormGroup.valid" >Login</button>
+  <ion-item>
+  <ion-row> 
+      <div class="fab-container">
+      <ion-col text-center>
+        <button  ion-button clear color="dark" (click)="forgetPassword()">Forget Password?</button>
+        <button ion-button clear ion-button item-end icon-start color="dark"  (click)="signUp()">Sign Up?</button>
+        </ion-col>
+      </div>
+    </ion-row>
+  </ion-item>
+  <ion-row>
+      <div class="fab-container" style="padding-top: 70px;">
+        <ion-fab left bottom>
+           <button   ion-fab color="primary"><ion-icon name="log-in"></ion-icon></button>
+          <ion-fab-list side="right">
+            <button ion-fab color="secondary" (click)="wechatShare(login)"><ion-icon name="custom-wechat"></ion-icon></button>
+            <button ion-fab color="primary"><ion-icon name="custom-qq"></ion-icon></button>
+            <button ion-fab color="danger"><ion-icon name="custom-weibo"></ion-icon></button>
+          </ion-fab-list>
+        </ion-fab>
+      </div>
+    </ion-row> 
+  </form>  
+  </ion-content>  
+
+  <ion-footer>
+  <ion-grid padding center text-center>
+      <ion-row>
+          <ion-col no-padding>
+            ⒸRongdaitong 2018-2019
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-footer>
+    
+    
