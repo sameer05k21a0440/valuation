@@ -7,14 +7,17 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 
-
+import { UserTabsPage } from '../pages/user-tab/user-tabs';
+import { MenuTabPage } from '../pages/menu-tab/menu-tab';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+ 
+
 
 import {LoginPage} from '../pages/login/login';
 import {UserLoginPage} from '../pages/user-login/user-login';
+import { RegisterPage } from '../pages/register/register'; 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,12 +38,14 @@ messagingSenderId: "759257827636"});
 @NgModule({
   declarations: [
     MyApp,
-    UserLoginPage,
+    UserTabsPage,
     LoginPage,
+    UserLoginPage,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    MenuTabPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -51,12 +56,14 @@ messagingSenderId: "759257827636"});
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    UserTabsPage,
     UserLoginPage,
     LoginPage,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    MenuTabPage,
+    RegisterPage
     
   ],
   providers: [
@@ -64,7 +71,7 @@ messagingSenderId: "759257827636"});
     SplashScreen,
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TabsPage,
+    MenuTabPage,
     SearchDataProvider
   ]
 })

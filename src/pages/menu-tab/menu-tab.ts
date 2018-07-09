@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+
+import { HomePage } from '../home/home';
+import { AboutPage } from '../about/about';
+import { ContactPage } from '../contact/contact';
 
 /**
  * Generated class for the MenuTabPage tabs.
@@ -8,18 +11,17 @@ import { IonicPage, NavController } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
-  selector: 'page-menu-tab',
   templateUrl: 'menu-tab.html'
 })
 export class MenuTabPage {
 
-  homeRoot = 'HomePage'
-  aboutRoot = 'AboutPage'
-  contactsRoot = 'ContactsPage'
+  homeRoot = HomePage
+  aboutRoot = AboutPage
+  contactsRoot = ContactPage
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor() {}
 
 }

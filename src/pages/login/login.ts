@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams  } from 'ionic-angular';
+import { NavController,NavParams,ToastController  } from 'ionic-angular';
 
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
-import { TabsPage } from '../tabs/tabs';
+import { MenuTabPage } from '../menu-tab/menu-tab';
 
 import * as firebase  from 'firebase';
 import {Firebase} from '@ionic-native/firebase';
@@ -20,9 +20,9 @@ export class LoginPage {
   verificationId:any;
   rememberLogin:boolean;
   private loginFormGroup:FormGroup;
-  rootPage:any = TabsPage;
+  rootMenuPage:any = MenuTabPage;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,public firebase: Firebase,private formBuilder: FormBuilder ) {
+  constructor(public navCtrl: NavController,public navParams: NavParams,public toast:ToastController,public firebase: Firebase,private formBuilder: FormBuilder ) {
 
     this.loginFormGroup=this.formBuilder.group({
       telNumber:new FormControl('',Validators.compose([Validators.required])),
@@ -34,17 +34,25 @@ export class LoginPage {
   sendLoginCode(phoneNumber:number){
   if(String(this.phoneNumber) !="undefined"){
   //getVerificationID  verifyPhoneNumber
-  (<any>window).FirebasePlugin.verifyPhoneNumber("+91"+phoneNumber,60,(credential)=>{
-    alert("SMS SENT Successfully");
-    console.log(credential);
-    this.verificationId=credential.verificationId;
+  alert("Before Send "+91+this.phoneNumber);
+  (<any>window).FirebasePlugin.verifyPhoneNumber(91+this.phoneNumber,60,(credential)=>{
+      alert("SMS SENT Successfully"+91+this.phoneNumber);
+      console.log(credential);
+      this.verificationId=credential.verificationId;
   },function(error){
-    console.log(error);
+    const toast=this.toast.create({
+      message: 'Text Msg was not Send',
+      duration:3000
+    });
+    toast.present();
   });
      }else{
-       alert("Please enter mobile number");
+        const  toast=this.toast.create({
+        message: 'Please enter mobile number',
+        duration:3000
+      });
+     toast.present();
      }
-  
   }
 
   public  forgetPassword(){
@@ -57,15 +65,13 @@ export class LoginPage {
   }
   public HomePage(){
     alert("Welcome HOME"+this.loginFormGroup.value);
+    this.navCtrl.push(this.rootMenuPage);
     let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
     firebase.auth().signInWithCredential(signInCredential).then((info)=>{
-      console.log("Successully Send Message"+info)
-
-      this.navCtrl.push(this.rootPage);
-      
-    },function (error){
+       console.log("Successully Send Message"+info) 
+     },function (error){
       console.log("Error On Credentials"+error);
-    });
+     });
     
     
   }
