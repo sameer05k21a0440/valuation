@@ -4,44 +4,61 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
- <ion-content padding center text-center>
+   <ion-content>
     <ion-header>
-    <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-navbar hideBackButton>
+    <!-- <ion-buttons left>
+            <button ion-button (click)="userLoginPage()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+    </ion-buttons> -->
+    <ion-title>
+      Register
+    </ion-title>
     </ion-navbar>
     </ion-header>
- </ion-content>
- <ion-content padding center text-center>
- <form [formGroup]="registerFormGroup">
-  <ion-item> 
+    </ion-content>
+    <ion-content class="formReg"> 
+    <form [formGroup]="registerFormGroup">
+      <ion-item> 
       <ion-label color="primary" floating>Enter Mobile Number</ion-label>
       <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
       formControlName="telNumber">
       </ion-input>  
- </ion-item>
-  <ion-item>
-      <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
-      <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode">
-      </ion-input>
-      <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button>
+      </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
+        <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode">
+        </ion-input>
+        <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>Enter New Password</ion-label>
+        <ion-input  clearInput type="password" class="form-control" name="password" [(ngModel)]="password" 
+            formControlName="password"></ion-input>
   </ion-item>
-  <ion-item>
-      <ion-label color="primary" floating>Enter Password</ion-label>
-      <ion-input  clearInput type="password" class="form-control" name="password" [(ngModel)]="password" 
-          formControlName="password"></ion-input>
-</ion-item>
-<div *ngIf="registerFormGroup.controls.password.hasError('pattern') &&
-(registerFormGroup.controls.password.dirty || submitted)"
-class="validator-error">
-Passwords should be at least 8 characters long and contain one number, one character and one special character.
- </div>
- <ion-item>
-    <label>Please Choose Your Identity</label>
-    
- </ion-item>
- <button ion-button  full type="submit" (click)="HomePage()" class="loginSubmit" [disabled]="!registerFormGroup.valid" >Register</button>
- </form>
-</ion-content>
+  <div *ngIf="registerFormGroup.controls.password.hasError('pattern') &&
+  (registerFormGroup.controls.password.dirty || submitted)"
+  class="validator-error">
+  Passwords should be at least 8 characters long and contain one number, one character and one special character.
+   </div>
+   <ion-item>
+      <label>Please Choose Your Identity</label>
+      
+   </ion-item>
+   <button ion-button full round  type="submit" (click)="HomePage()" class="regSubmit" [disabled]="!registerFormGroup.valid" >Register</button>
+   <ion-item>
+    <ion-label style="color:gray;">Remember Me</ion-label>
+     <ion-checkbox  style="text-align: center;" class="form-control" name="rememberLogin">
+       <a href="http://www.rongdaitong.cn/">click</a>
+     </ion-checkbox>
+  </ion-item>
+
+  </form>
+ </ion-content>
+
+
+
 
 
 

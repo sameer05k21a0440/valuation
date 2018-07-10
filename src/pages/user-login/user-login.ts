@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
 import { MenuTabPage } from '../menu-tab/menu-tab';
@@ -23,7 +23,7 @@ export class UserLoginPage {
   private userLoginFormGroup:FormGroup;
   rootMenuPage:any = MenuTabPage;
   register:any=RegisterPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder) {
+  constructor(private events:Events,public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder) {
     this.userLoginFormGroup=this.formBuilder.group({
       userName:new FormControl('',Validators.compose([Validators.required])),
       password:new FormControl('',Validators.compose([Validators.pattern(regexValidators.password), Validators.required]
@@ -36,12 +36,15 @@ export class UserLoginPage {
   }
 
   private userSubmit(){
-    alert("User Submit Call Func");
-    this.navCtrl.push(this.rootMenuPage);
+    this.events.publish('MenuTabPage');
+  //    alert("User Submit Call Func");
+    //this.events.publish('RegisterPage');
+    //this.navCtrl.push(this.rootMenuPage);
   }
 
   private registerPage(){
-      this.navCtrl.goToRoot(this.register);
+      this.events.publish('RegisterPage');
+     
   }
 
 }
