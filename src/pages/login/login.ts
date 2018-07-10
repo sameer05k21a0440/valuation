@@ -64,11 +64,11 @@ export class LoginPage {
     
   }
   public HomePage(){
-    alert("Welcome HOME"+this.loginFormGroup.value);
-    this.navCtrl.push(this.rootMenuPage);
+    //alert("Welcome HOME"+this.loginFormGroup.value);
     let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
     firebase.auth().signInWithCredential(signInCredential).then((info)=>{
        console.log("Successully Send Message"+info) 
+       this.navCtrl.push(this.rootMenuPage);
      },function (error){
       console.log("Error On Credentials"+error);
      });

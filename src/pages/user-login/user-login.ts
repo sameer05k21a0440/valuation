@@ -6,6 +6,8 @@ import { MenuTabPage } from '../menu-tab/menu-tab';
 import { RegisterPage } from '../register/register';
 
 import {regexValidators} from '../validators/validator';
+ 
+
 /**
  * Generated class for the UserLoginPage page.
  *
@@ -39,7 +41,7 @@ export class UserLoginPage {
   }
 
   private registerPage(){
-      this.navCtrl.setRoot(this.register);
+      this.navCtrl.goToRoot(this.register);
   }
 
 }
