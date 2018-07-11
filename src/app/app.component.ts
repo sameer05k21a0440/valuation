@@ -7,13 +7,14 @@ import { UserTabsPage } from '../pages/user-tab/user-tabs';
 import { RegisterPage  } from '../pages/register/register';
 import { MenuTabPage } from '../pages/menu-tab/menu-tab';
 
+import { CredentialPage } from '../pages/credential/credential';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = UserTabsPage;
+  rootPage:any = CredentialPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private events:Events) {
     platform.ready().then(() => {

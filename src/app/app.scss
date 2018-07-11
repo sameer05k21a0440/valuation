@@ -17,12 +17,12 @@
 ion-icon { 
     &[class*="custom-"] {
         mask-size: contain;
-        mask-position: 30% 30%;
+        mask-position: 20% 20%;
         mask-repeat: no-repeat;
         background: currentColor;
-        font-size: 25px !important;
-        width: 1em;
-        height: 1em;
+        font-size: 15px !important;
+        width: 1.5em;
+        height: 1.5em;
       }
     &[class*="custom-wechat"] {
         mask-image: url(../assets/imgs/wechat.svg);

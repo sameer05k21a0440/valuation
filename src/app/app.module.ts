@@ -13,7 +13,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
  
-
+import { CredentialPage } from  '../pages/credential/credential';
 
 import {LoginPage} from '../pages/login/login';
 import {UserLoginPage} from '../pages/user-login/user-login';
@@ -38,6 +38,7 @@ messagingSenderId: "759257827636"});
 @NgModule({
   declarations: [
     MyApp,
+    CredentialPage,
     UserTabsPage,
     LoginPage,
     UserLoginPage,
@@ -56,6 +57,7 @@ messagingSenderId: "759257827636"});
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    CredentialPage,
     UserTabsPage,
     UserLoginPage,
     LoginPage,

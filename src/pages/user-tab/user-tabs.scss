@@ -1,6 +1,16 @@
  page-user-tabs{
-   ion-title   {
-     position: relative !important;
-     text-align: center;
+   ion-title{
+    position: relative !important;
+    text-align: center;
+    background-size:cover;
+    background-repeat: no-repeat;    
    }
    };
+$colors: (
+ newColor:(
+   base: #55acee,
+    contrast: #ffffff
+ )
+)
+  
+
