@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
 import {regexValidators} from '../validators/validator';
+
+import { RegisterPage } from '../register/register';
+import { ForgetPage } from '../forget/forget';
 /**
  * Generated class for the CredentialPage page.
  *
@@ -42,7 +45,12 @@ export class CredentialPage {
     } else {
       this.type = 'password';
     }
-
+  }
+  private forgetPage(){
+   this.navCtrl.push(ForgetPage);
+  }
+  private registerPage(){
+   this.navCtrl.push(RegisterPage);
   }
 
 }

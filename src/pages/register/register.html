@@ -7,53 +7,67 @@
    <ion-content>
     <ion-header>
     <ion-navbar hideBackButton>
-    <!-- <ion-buttons left>
-            <button ion-button (click)="userLoginPage()">
+     <ion-buttons left>
+            <button ion-button (click)="credentialLoginPage()">
                 <ion-icon class="customIcon" name="arrow-back"></ion-icon>
             </button>
-    </ion-buttons> -->
+    </ion-buttons> 
     <ion-title>
       Register
     </ion-title>
     </ion-navbar>
     </ion-header>
     </ion-content>
-    <ion-content class="formReg"> 
-    <form [formGroup]="registerFormGroup">
-      <ion-item> 
-      <ion-label color="primary" floating>Enter Mobile Number</ion-label>
-      <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
-      formControlName="telNumber">
-      </ion-input>  
-      </ion-item>
+    <ion-content class="formReg">
+  <form [formGroup]="registerFormGroup">
+   <ion-row>
+    <ion-col>
+    <ion-list inset>
     <ion-item>
-        <ion-label color="primary" floating>Enter OTP Sent to your mobile</ion-label> 
-        <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode">
-        </ion-input>
-        <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button>
+    <ion-icon name="phone-portrait" item-start></ion-icon>
+   <ion-label color="stable" floating>
+     Enter Mobile Number
+    </ion-label>
+    <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
+      formControlName="telNumber">
+    </ion-input>
     </ion-item>
     <ion-item>
-        <ion-label color="primary" floating>Enter New Password</ion-label>
-        <ion-input  clearInput type="password" class="form-control" name="password" [(ngModel)]="password" 
+    <ion-icon name="text" item-start></ion-icon>
+        <ion-label color="stable" floating>
+          Enter OTP Sent to your mobile</ion-label> 
+    <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
+      </ion-input>
+        <button ion-button item-right small outline round color="danger" type="button" > Get Verification Code</button>
+     <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
+    </ion-item>
+    <ion-item>
+    <ion-icon name="lock" item-start></ion-icon> 
+  <ion-label color="stable" floating>
+          Enter Password</ion-label>
+  <ion-input  clearInput type="{{type}}" class="form-control" name="password" [(ngModel)]="password" 
             formControlName="password"></ion-input>
+  
+    <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>
+    <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>
+            
   </ion-item>
   <div *ngIf="registerFormGroup.controls.password.hasError('pattern') &&
   (registerFormGroup.controls.password.dirty || submitted)"
   class="validator-error">
   Passwords should be at least 8 characters long and contain one number, one character and one special character.
-   </div>
-   <ion-item>
-      <label>Please Choose Your Identity</label>
-      
-   </ion-item>
-   <button ion-button full round  type="submit" (click)="HomePage()" class="regSubmit" [disabled]="!registerFormGroup.valid" >Register</button>
-   <ion-item>
-    <ion-label style="color:gray;">Remember Me</ion-label>
-     <ion-checkbox  style="text-align: center;" class="form-control" name="rememberLogin">
-       <a href="http://www.rongdaitong.cn/">click</a>
-     </ion-checkbox>
-  </ion-item>
-
+  </div>
+   <ion-label color="dark" fixed>
+    Select Identity 
+   </ion-label>
+  <div>
+    <ion-tags-input item-left outline small  round color="danger" name="tags" formControlName="tags"  type="button" [(ngModel)]="tags" [canEnterAdd]="true">
+    </ion-tags-input>
+  </div>
+  <button ion-button full round  type="submit" (click)="HomePage()" class="regSubmit" [disabled]="!registerFormGroup.valid" ><ion-label color="stable" fixed>Register</ion-label></button>
+    </ion-list>
+     </ion-col>
+   </ion-row>   
   </form>
  </ion-content>
 

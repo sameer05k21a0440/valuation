@@ -5,14 +5,68 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>forget</ion-title>
+  <ion-navbar hideBackButton> 
+  <ion-buttons left>
+          <button ion-button (click)="credentialLoginPage()">
+              <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+          </button>
+  </ion-buttons> 
+    <ion-title>Forget the Password</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <form [formGroup]="forgetFormGroup">
+  <ion-row>
+    <ion-col>
+    <ion-list inset>
+    <ion-item>
+        <ion-icon name="phone-portrait" item-start></ion-icon> 
+    <ion-label color="stable" floating>
+      Enter Mobile Number
+      </ion-label>
+      <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
+        formControlName="telNumber">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="text" item-start></ion-icon>
+        <ion-label color="stable" floating>
+          Enter OTP Sent to your mobile</ion-label> 
+    <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
+      </ion-input>
+        <button ion-button item-right small outline round color="danger" type="button" > Get Verification Code</button>
+     <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
+    </ion-item>
+    <ion-item>
+    <ion-icon name="lock" item-start></ion-icon> 
+    <ion-label color="stable" floating>
+            Enter Password</ion-label>
+    <ion-input  clearInput type="{{type}}" class="form-control" name="password" [(ngModel)]="password" 
+              formControlName="password"></ion-input>
+    
+      <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>
+      <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>
+              
+    </ion-item>
+    <div *ngIf="forgetFormGroup.controls.password.hasError('pattern') &&
+    (forgetFormGroup.controls.password.dirty || submitted)"
+    class="validator-error">
+    Passwords should be at least 8 characters long and contain one number, one character and one special character.
+    </div>
+    <ion-item>
+    <ion-icon name="text" item-start></ion-icon>
+    <ion-label color="stable" floating>
+         Please Enter the letters
+      </ion-label>
+     <ion-input clearInput type="text" name="typeCaptcha" [(ngModel)]="typeCaptcha"  formControlName="typeCaptcha" ></ion-input>
+    </ion-item>
+    <button ion-button full round  type="submit" (click)="credentialLoginPage()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed>Reset Password</ion-label></button>
+    </ion-list>
+    </ion-col>
+  
+  </ion-row>
 
-<ion-content padding>
+ </form>
 
 </ion-content>

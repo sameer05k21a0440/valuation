@@ -23,18 +23,18 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    this.initEvents();
+    //this.initEvents();
   }
 
-  private initEvents(){
-    this.events.subscribe('RegisterPage',()=>{
-     this.rootPage=RegisterPage;
-     this.rootPage=MenuTabPage;
-    });
-    this.events.subscribe('MenuTabPage',()=>{
-      this.rootPage=MenuTabPage;
-     });
+  // private initEvents(){
+  //   this.events.subscribe('RegisterPage',()=>{
+  //    this.rootPage=RegisterPage;
+  //    this.rootPage=MenuTabPage;
+  //   });
+  //   this.events.subscribe('MenuTabPage',()=>{
+  //     this.rootPage=MenuTabPage;
+  //    });
     
 
-  }
+//  }
 }

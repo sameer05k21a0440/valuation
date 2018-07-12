@@ -18,9 +18,12 @@ import { CredentialPage } from  '../pages/credential/credential';
 import {LoginPage} from '../pages/login/login';
 import {UserLoginPage} from '../pages/user-login/user-login';
 import { RegisterPage } from '../pages/register/register'; 
+import { ForgetPage } from '../pages/forget/forget';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { IonTagsInputModule } from 'ionic-tags-input';
 
 import {Firebase} from '@ionic-native/firebase';
 import { SearchDataProvider } from '../providers/search-data/search-data';
@@ -46,12 +49,14 @@ messagingSenderId: "759257827636"});
     ContactPage,
     HomePage,
     MenuTabPage,
+    ForgetPage,
     RegisterPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     ReactiveFormsModule,
+    IonTagsInputModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -65,6 +70,7 @@ messagingSenderId: "759257827636"});
     ContactPage,
     HomePage,
     MenuTabPage,
+    ForgetPage,
     RegisterPage
     
   ],
