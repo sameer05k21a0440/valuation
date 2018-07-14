@@ -21,8 +21,8 @@
     <ion-col>
     <ion-list inset>
     <ion-item>
-        <ion-icon name="phone-portrait" item-start></ion-icon> 
     <ion-label color="stable" floating>
+    <ion-icon name="phone-portrait" item-start></ion-icon> 
       Enter Mobile Number
       </ion-label>
       <ion-input autofocus clearInput type="tel"   class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
@@ -30,8 +30,8 @@
       </ion-input>
     </ion-item>
     <ion-item>
-        <ion-icon name="text" item-start></ion-icon>
-        <ion-label color="stable" floating>
+      <ion-label color="stable" floating>
+    <ion-icon name="text" item-start></ion-icon>
           Enter OTP Sent to your mobile</ion-label> 
     <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
       </ion-input>
@@ -39,8 +39,8 @@
      <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
     </ion-item>
     <ion-item>
-    <ion-icon name="lock" item-start></ion-icon> 
     <ion-label color="stable" floating>
+    <ion-icon name="lock" item-start></ion-icon> 
             Enter Password</ion-label>
     <ion-input  clearInput type="{{type}}" class="form-control" name="password" [(ngModel)]="password" 
               formControlName="password"></ion-input>
@@ -55,16 +55,19 @@
     Passwords should be at least 8 characters long and contain one number, one character and one special character.
     </div>
     <ion-item>
-    <ion-icon name="text" item-start></ion-icon>
     <ion-label color="stable" floating>
+    <ion-icon name="text" item-start></ion-icon>
          Please Enter the letters
       </ion-label>
      <ion-input clearInput type="text" name="typeCaptcha" [(ngModel)]="typeCaptcha"  formControlName="typeCaptcha" ></ion-input>
+     <!-- <ion-input disable type="text" name="captcha" [(ngModel)]="captcha"></ion-input> -->
     </ion-item>
-    <button ion-button full round  type="submit" (click)="credentialLoginPage()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed>Reset Password</ion-label></button>
     </ion-list>
+    <button ion-button full round  type="submit" (click)="credentialLoginPage()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed>Reset Password</ion-label></button>
+    <ion-item padding center text-center>
+    
+    </ion-item>
     </ion-col>
-  
   </ion-row>
 
  </form>

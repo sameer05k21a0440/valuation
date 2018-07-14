@@ -7,14 +7,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+  <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
- <p style="color: darkorange"> Successfully Registered</p>
+ <p style="font-size: 18px;color: red;position:center;"> <h3>Successfully Registered</h3>
+   <ion-icon name="checkmark"></ion-icon>
+ </p>
  <div>
-    <button ion-button full round  type="button" (click)="HomePage()">Start Valuation</button>
+    <button ion-button full round  color="danger" type="button">Start Valuation</button>
  </div>
- <!-- <div>
-    <button ion-button full round  type="button" (click)="HomePage()">Perfect Information</button>
- </div> -->
+ <div>
+    <button ion-button full round outline color="danger" type="button">Additional Information</button>
+ </div>
 </ion-content>

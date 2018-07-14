@@ -16,7 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { CredentialPage } from  '../pages/credential/credential';
 
 import {LoginPage} from '../pages/login/login';
-import {UserLoginPage} from '../pages/user-login/user-login';
+import { UserLoginPage } from '../pages/user-login/user-login';
 import { RegisterPage } from '../pages/register/register'; 
 import { ForgetPage } from '../pages/forget/forget';
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { CredentialPage } from '../credential/credential'; 
+
 /**
  * Generated class for the HomePage page.
  *
@@ -19,6 +21,10 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+  }
+
+  public logout(){
+    this.navCtrl.setRoot(CredentialPage)
   }
 
 }
