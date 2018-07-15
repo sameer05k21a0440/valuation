@@ -38,7 +38,8 @@
           Enter OTP Sent to your mobile</ion-label> 
     <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
       </ion-input>
-        <button ion-button item-right small outline round color="danger" type="button" > Get Verification Code</button>
+      <button  ion-button outline  color="danger" type="button" item-right (click)="getVerificactionCode(phoneNumber)">
+        Get Code</button>
      <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
     </ion-item>
     <ion-item>

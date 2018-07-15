@@ -8,6 +8,8 @@ import {regexValidators} from '../validators/validator';
 import { RegisterPage } from '../register/register';
 import { ForgetPage } from '../forget/forget';
 import { MenuTabPage } from '../menu-tab/menu-tab';
+
+
 /**
  * Generated class for the CredentialPage page.
  *
@@ -76,7 +78,7 @@ export class CredentialPage {
   }
 
 
-  private _htmlProperty: string = "<p><span name=\"checkmark\"style=\"display:block;font-family:Ionicons;color:danger;position:center;\"class=\"icon icon-md ion-md-checkmark\"></span></div></p>";
+  private _htmlProperty: string = "<p><span name=\"checkmark\"style=\"display:block;font-family:Ionicons;font-size: 20px;color:danger;position:center;\"class=\"icon icon-md ion-md-checkmark\"></span></p>";
   public htmlProperty() {
     return this.sanitized.bypassSecurityTrustHtml(this._htmlProperty);
   }
@@ -84,7 +86,7 @@ export class CredentialPage {
   private userSubmit(){
     let alert = this.alertCtrl.create({
       message: <any> this.htmlProperty(),
-      title:"Login Successful"    
+      title:"Login Successful"   
     });
     alert.present();
     this.navCtrl.push(MenuTabPage);

@@ -1,21 +1,15 @@
-<!--
-  Generated template for the ForgetPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar hideBackButton> 
   <ion-buttons left>
-          <button ion-button (click)="credentialLoginPage()">
-              <ion-icon class="customIcon" name="arrow-back"></ion-icon>
-          </button>
+   <button ion-button (click)="credentialLoginPage()">
+    <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+    </button>
   </ion-buttons> 
     <ion-title>Forget the Password</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding center text-center>
   <form [formGroup]="forgetFormGroup">
   <ion-row>
     <ion-col>
@@ -30,13 +24,13 @@
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="stable" floating>
+    <ion-label color="stable" floating>
     <ion-icon name="text" item-start></ion-icon>
           Enter OTP Sent to your mobile</ion-label> 
-    <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
-      </ion-input>
-        <button ion-button item-right small outline round color="danger" type="button" > Get Verification Code</button>
-     <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
+    <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode">
+    </ion-input>
+    <button  ion-button outline  color="danger" type="button" item-right (click)="getVerificactionCode(phoneNumber)">
+      <div style="margin-bottom: -8px; font-size: 12px;"> Get Code</div></button>
     </ion-item>
     <ion-item>
     <ion-label color="stable" floating>
@@ -58,18 +52,20 @@
     <ion-label color="stable" floating>
     <ion-icon name="text" item-start></ion-icon>
          Please Enter the letters
-      </ion-label>
-     <ion-input clearInput type="text" name="typeCaptcha" [(ngModel)]="typeCaptcha"  formControlName="typeCaptcha" ></ion-input>
-     <!-- <ion-input disable type="text" name="captcha" [(ngModel)]="captcha"></ion-input> -->
+    </ion-label>
+    <ion-input  clearInput type="text" class="form-control" name="typeCaptcha" [(ngModel)]="typeCaptcha" 
+    formControlName="typeCaptcha"></ion-input>
+    <button ion-button  clear item-right color="dark" type="button" value="{{captcha}}">
+     <div style="margin-bottom: -8px; font-size: 12px;"> {{captcha}}
+    <ion-icon name="ios-refresh-circle-outline"  (click)="doRefreshCaptcha()"></ion-icon>
+    </div>
+     </button>
     </ion-item>
     </ion-list>
-    <button ion-button full round  type="submit" (click)="credentialLoginPage()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed>Reset Password</ion-label></button>
+    <button ion-button full round  type="submit" (click)="doValidateSubmitForget()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed>Reset Password</ion-label></button>
     <ion-item padding center text-center>
-    
     </ion-item>
     </ion-col>
   </ion-row>
-
  </form>
-
 </ion-content>

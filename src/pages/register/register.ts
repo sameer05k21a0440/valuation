@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
 import {regexValidators} from '../validators/validator';
 
@@ -20,11 +20,12 @@ import { MenuTabPage } from '../menu-tab/menu-tab';
 export class RegisterPage {
   phoneNumber:number;
   verificationCode:number;
+  verificationId:any;
   public type = 'password';
   public showPass = false;
   private registerFormGroup:FormGroup;
   private tags = ['Enterprise', 'Organization', 'Personal'];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private toast:ToastController) {
     this.registerFormGroup=this.formBuilder.group({
       telNumber:new FormControl('',Validators.compose([Validators.required])),
       verificationCode:new FormControl('',Validators.compose([Validators.required])),
@@ -36,6 +37,30 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+  private getVerificactionCode(phoneNumber:number){
+    if(String(phoneNumber) !="undefined"){
+      //getVerificationID  verifyPhoneNumber
+      //alert("Before Send "+86+phoneNumber);
+      (<any>window).FirebasePlugin.verifyPhoneNumber(86+phoneNumber,60,(credential)=>{
+         // alert("SMS SENT Successfully"+86+phoneNumber);
+          console.log(credential);
+          this.verificationId=credential.verificationId;
+      },function(error){
+        const toast=this.toast.create({
+          message: 'Text Msg was not Send',
+          duration:3000
+        });
+        toast.present();
+      });
+         }else{
+            const  toast=this.toast.create({
+            message: 'Please enter mobile number',
+            duration:3000
+          });
+         toast.present();
+         }
+  }
+
   private showPassword() {
     this.showPass = !this.showPass;
     if(this.showPass){
