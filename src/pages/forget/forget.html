@@ -5,16 +5,16 @@
     <ion-icon class="customIcon" name="arrow-back"></ion-icon>
     </button>
   </ion-buttons> 
-    <ion-title>Forget the Password</ion-title>
+    <ion-title><p style="font-size: 14px;">Forget  Password</p></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding center text-center>
+<ion-content padding center text-center class="forget_container">
   <form [formGroup]="forgetFormGroup">
   <ion-row>
     <ion-col>
     <ion-list inset>
-    <ion-item>
+    <ion-item class="forget_rounded">
     <ion-label color="stable" floating>
     <ion-icon name="phone-portrait" item-start></ion-icon> 
       Enter Mobile Number
@@ -23,16 +23,16 @@
         formControlName="telNumber">
       </ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item class="forget_rounded">
     <ion-label color="stable" floating>
     <ion-icon name="text" item-start></ion-icon>
-          Enter OTP Sent to your mobile</ion-label> 
+          Enter OTP</ion-label> 
     <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode">
     </ion-input>
     <button  ion-button outline  color="danger" type="button" item-right (click)="getVerificactionCode(phoneNumber)">
-      <div style="margin-bottom: -8px; font-size: 12px;"> Get Code</div></button>
+      <div style="margin-bottom: -8px;margin-right:-1vh; font-size: 14px;"> Get Code</div></button>
     </ion-item>
-    <ion-item>
+    <ion-item class="forget_rounded">
     <ion-label color="stable" floating>
     <ion-icon name="lock" item-start></ion-icon> 
             Enter Password</ion-label>
@@ -48,10 +48,10 @@
     class="validator-error">
     Passwords should be at least 8 characters long and contain one number, one character and one special character.
     </div>
-    <ion-item>
+    <ion-item class="forget_rounded">
     <ion-label color="stable" floating>
     <ion-icon name="text" item-start></ion-icon>
-         Please Enter the letters
+         Enter Letters
     </ion-label>
     <ion-input  clearInput type="text" class="form-control" name="typeCaptcha" [(ngModel)]="typeCaptcha" 
     formControlName="typeCaptcha"></ion-input>
@@ -62,9 +62,9 @@
      </button>
     </ion-item>
     </ion-list>
-    <button ion-button full round  type="submit" (click)="doValidateSubmitForget()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed>Reset Password</ion-label></button>
-    <ion-item padding center text-center>
-    </ion-item>
+    <div style="position:relative;width:100%; height:auto;text-transform: uppercase;margin-top:-2vh;margin-bottom: -2vh;">
+    <button ion-button full round  type="submit" (click)="doValidateSubmitForget()" class="forgetSubmit" [disabled]="!forgetFormGroup.valid" ><ion-label color="stable" fixed><p style="font-size: 10px;">Reset Password</p></ion-label></button>
+     </div>
     </ion-col>
   </ion-row>
  </form>

@@ -1,24 +1,22 @@
 page-register {
-    ion-header{
-        text-align: center;
-        margin-top: 05%
-    };
-    form{
-        margin-bottom: 30px;
-    }
-};
-.formReg{
-    text-align: center;
-    margin-top: 20%;
-    margin-bottom: 20%;
-    
-}
-.customIcon {
-
-    font-size: 1.7em;
+.register_container{
+    margin-left:auto; 
+    margin-right: auto;
+} 
+.register_rounded{
+    width: 100%;
+    height: auto;
+    margin-bottom:0px;
+    margin-top:0vh;
 }
 .regSubmit{
     position: relative;
     text-align: center;
     background-color: red;
   }
+
+
+
+};
+
+ 

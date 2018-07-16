@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 
 import { CredentialPage } from '../credential/credential'; 
 
@@ -16,7 +16,7 @@ import { CredentialPage } from '../credential/credential';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
   }
 
   ionViewDidLoad() {
@@ -24,7 +24,7 @@ export class HomePage {
   }
 
   public logout(){
-    this.navCtrl.setRoot(CredentialPage)
+    this.app.getRootNav().setRoot(CredentialPage);
   }
 
 }
