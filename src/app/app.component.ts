@@ -9,12 +9,14 @@ import { MenuTabPage } from '../pages/menu-tab/menu-tab';
 
 import { CredentialPage } from '../pages/credential/credential';
 
+import { HomePage } from '../pages/home/home';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CredentialPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private events:Events) {
     platform.ready().then(() => {

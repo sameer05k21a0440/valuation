@@ -1,3 +1,38 @@
 page-home {
+.home-bgcolor img {
+    overflow: hidden; 
+    max-height: auto;
+    max-width: 650px;;
+    margin-left:-22.7vh;
+    margin-right:-29.7vh;
+    margin-top:-32.5vh;
+}
+.custom-search {
+  width:250px;
+  height:auto;
+  margin-top:2vh;
+  text-align: right;
+}
+ion-input{
+    padding:0.5px;
+    width:250px;
+    height:auto;
+    text-align: center;
+    margin-top:-8vh;
+    -border-radius: 10px;
+     border-radius: 10px;
+    border:solid 1px white; 
+}
+.text-input::-webkit-input-placeholder{
+    color: white;
+    opacity: 1; /* Firefox */
+}
+.text-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+
+.text-input::-moz-placeholder { /* Microsoft Edge */
+    color: white;
+}
 
 }

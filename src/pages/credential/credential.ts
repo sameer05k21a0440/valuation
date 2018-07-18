@@ -9,6 +9,8 @@ import { RegisterPage } from '../register/register';
 import { ForgetPage } from '../forget/forget';
 import { MenuTabPage } from '../menu-tab/menu-tab';
 
+import * as $ from 'jquery'
+
 
 /**
  * Generated class for the CredentialPage page.
@@ -29,7 +31,11 @@ export class CredentialPage {
   public showPass = false;
   public validPassword=false;
   public color='red';
-  public swipe: number = 0;
+  public showOTP='SEND-OTP'
+  public unlockOTP:boolean=false;
+  public resultUnlock:any;
+  public verificationCode:any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private alertCtrl: AlertController,private sanitized: DomSanitizer) {
     this.userLoginFormGroup=this.formBuilder.group({
       userName:new FormControl('',Validators.compose([Validators.required])),
@@ -42,7 +48,7 @@ export class CredentialPage {
       unlockOTP:new FormControl('',Validators.compose([Validators.required]))
     });
 
-   
+    this.handleSwitchOTP();
   }
   
   ionViewDidLoad() {
@@ -66,10 +72,6 @@ export class CredentialPage {
     }
   }
 
-  private showUnlockOTP(otpValue){
-    var isChecked = otpValue.is(':checked');
-    alert("onchange"+isChecked);
-  } 
   private forgetPage(){
    this.navCtrl.push(ForgetPage);
   }
@@ -93,8 +95,17 @@ export class CredentialPage {
   }
   private phoneSubmit(){
 
+
   }
   
-
+private handleSwitchOTP(){
+//switch-input
+   this.resultUnlock = $('.switch-input').is(':checked')?'SEND-OTP':'OFF';
+      if(this.resultUnlock =='SEND-OTP'){
+        this.unlockOTP = !this.unlockOTP;
+      }else if(this.resultUnlock =='OFF'){
+        this.unlockOTP=false;
+      }
+}
 
 }

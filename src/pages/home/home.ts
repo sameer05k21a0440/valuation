@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 
 import { CredentialPage } from '../credential/credential'; 
+import { HttpModule } from '../../../node_modules/@angular/http';
 
+import 'rxjs/add/operator/map'
 /**
  * Generated class for the HomePage page.
  *
@@ -16,7 +19,12 @@ import { CredentialPage } from '../credential/credential';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
+  industryInformation:any[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private app:App, private http:Http) {
+    let localData = this.http.get('assets/information.json').map(res => res.json().items);
+    localData.subscribe(data => {
+      this.industryInformation = data;
+    })
   }
 
   ionViewDidLoad() {
@@ -25,6 +33,17 @@ export class HomePage {
 
   public logout(){
     this.app.getRootNav().setRoot(CredentialPage);
+  }
+  private credentialLoginPage(){
+    this.navCtrl.pop();
+  }
+
+  toggleSection(i) {
+    this.industryInformation[i].open = !this.industryInformation[i].open;
+  }
+ 
+  toggleItem(i, j) {
+    this.industryInformation[i].children[j].open = !this.industryInformation[i].children[j].open;
   }
 
 }
