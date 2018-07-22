@@ -5,6 +5,8 @@ import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { CredentialPage } from '../credential/credential'; 
 import { HttpModule } from '../../../node_modules/@angular/http';
 
+import { SelectionConfirmationPage } from '../selection-confirmation/selection-confirmation';
+
 import 'rxjs/add/operator/map'
 /**
  * Generated class for the HomePage page.
@@ -35,7 +37,7 @@ export class HomePage {
     this.app.getRootNav().setRoot(CredentialPage);
   }
   private credentialLoginPage(){
-    this.navCtrl.pop();
+    this.navCtrl.push(CredentialPage);
   }
 
   toggleSection(i) {
@@ -44,6 +46,10 @@ export class HomePage {
  
   toggleItem(i, j) {
     this.industryInformation[i].children[j].open = !this.industryInformation[i].children[j].open;
+  }
+
+  private selectionPage(){
+    this.navCtrl.push(SelectionConfirmationPage);
   }
 
 }

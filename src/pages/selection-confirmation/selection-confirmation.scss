@@ -1,0 +1,16 @@
+page-selection-confirmation {
+
+
+.custom-wrap-text{
+  width: min-intrinsic;       /* old Chrome, Safari */
+  width: -webkit-min-content; /* less old Chrome, Safari */
+  width: -moz-min-content;    /* current Firefox */
+  width: min-content;         /* current Chrome, Safari; not IE or Edge */
+  white-space:normal;
+}
+
+ .custom-color-btn{
+     color:coral
+ }
+
+}

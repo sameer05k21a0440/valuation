@@ -2,7 +2,7 @@
 <ion-navbar hideBackButton>
     <ion-buttons  left>
       <button ion-button (click)="credentialLoginPage()">
-      <ion-icon style="margin-top:-9vh;" name="arrow-back"></ion-icon>
+      <ion-icon style="margin-top:-10vh; color:white;" name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
       <div class="home-bgcolor">
@@ -10,29 +10,46 @@
             <img style="width:2000%;height:auto;"  src="../../assets/imgs/login_new_image.png" alt="logo"/>
           <!-- </a> -->
       </div>
-      <h3 style="text-align: center; margin-top: -30vh;color: white;">Select Industry</h3>
+      <h4 style="text-align: center; margin-top: -25vh;color: white;">Select Industry</h4>
       <div class="custom-search">
+          <ion-label><ion-icon  item-end name="search"></ion-icon></ion-label>
+          <ion-input clearInput type="text" placeholder="Enter your company or trade name"></ion-input>
+      </div>
+      <!-- <div class="custom-search">
       <ion-label><ion-icon  item-end name="search"></ion-icon></ion-label>
       <ion-input clearInput type="text" placeholder="Enter your company or trade name"></ion-input>
-  </div>
-  <div style="text-align: center;color: white;font-size: 10px;">
-  <button ion-button clear item-start style="color:white;"   (click)="manualIndustry()">Manual Industry</button>
+     </div> -->
+
+  <div style=" text-align: center;">
+  <button ion-button clear style="text-align: center; color:white;font-size: 12px;" (click)="manualIndustry()">Manual Industry</button>
   </div>
   </ion-navbar>
 </ion-header>
-<ion-content padding center text-center>
+<ion-content  padding center text-center>
   <div style="text-align: left;">
-    <button ion-button small  round  color="danger" type="button">Hot Industry</button>
+    <button ion-button small  round  color="coralRed" type="button">Hot Industry</button>
   </div>
 
-<ion-list inset class="accordion-list">
+<ion-list  class="accordion-list" text-wrap>
 <!-- First Level -->
-<ion-list-header *ngFor="let item of industryInformation; let i = index" padding>
- <ion-icon name="leaf" item-left></ion-icon>
+<ion-list-header *ngFor="let item of industryInformation; let i = index" no-lines no-padding>
    <!-- Toggle Button -->
   <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
-      <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>
+      <ion-icon item-start name="ios-arrow-dropright" *ngIf="!item.open"></ion-icon> 
+      <ion-icon item-start  name="arrow-dropdown"  *ngIf="item.open"></ion-icon>
+      <p style="color: red;">{{item.name}}</p>
   </button>
+  <ion-list *ngIf="item.children && item.open" no-lines  text-wrap>
+   <!-- Second Level -->
+   <ion-list-header *ngFor="let child of item.children; let j = index" padding>
+  <!-- Direct Add Button as Fallback -->
+  <ion-item item-text-wrap>
+  <p text-lowercase>
+  {{ child.information }}</p>
+  </ion-item>
+   </ion-list-header>
+   <button ion-button clear item-start style="font-size: 14px;color:coral;margin-left: -27vh;margin-top: 0vh;" (click)="selectionPage()">Confirmation</button>
+  </ion-list> 
 </ion-list-header>
 </ion-list>
 

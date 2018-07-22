@@ -9,14 +9,13 @@ import { MenuTabPage } from '../pages/menu-tab/menu-tab';
 
 import { CredentialPage } from '../pages/credential/credential';
 
-import { HomePage } from '../pages/home/home';
-
+import { SelectionConfirmationPage } from '../pages/selection-confirmation/selection-confirmation';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = SelectionConfirmationPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private events:Events) {
     platform.ready().then(() => {
@@ -28,15 +27,14 @@ export class MyApp {
     //this.initEvents();
   }
 
-  // private initEvents(){
-  //   this.events.subscribe('RegisterPage',()=>{
-  //    this.rootPage=RegisterPage;
-  //    this.rootPage=MenuTabPage;
-  //   });
-  //   this.events.subscribe('MenuTabPage',()=>{
-  //     this.rootPage=MenuTabPage;
-  //    });
-    
+//   private initEvents(){
+//     this.events.subscribe('RegisterPage',()=>{
+//      this.rootPage=RegisterPage;
+//      this.rootPage=MenuTabPage;
+//     });
+//     this.events.subscribe('MenuTabPage',()=>{
+//       this.rootPage=MenuTabPage;
+//      });
 
 //  }
 }

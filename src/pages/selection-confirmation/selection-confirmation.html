@@ -1,0 +1,66 @@
+<!--
+  Generated template for the SelectionConfirmationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+  <ion-buttons  left>
+  <button ion-button (click)="homePage()">
+      <ion-icon style="margin-top:0vh; color:black;" name="arrow-back"></ion-icon>
+  </button>    
+  </ion-buttons>
+    <ion-title><div style="text-align: center; font-size: 16px;">Select Confirmation</div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content  class="has-header has-subheader">
+<ion-tags-input small type="button" color="coral"  [(ngModel)]="selectionTags"  [once]="false" >
+</ion-tags-input>
+
+<ion-list>
+ <ion-item>
+ <ion-label style="font-size: 12px;">First Industry</ion-label>
+ <button ion-button clear item-end style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;" (click)="registerPage()">Register Account </button>  
+</ion-item>
+<ion-item>
+  <ion-label style="font-size: 12px;">First Industry</ion-label>
+  <button ion-button clear item-end style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;" (click)="registerPage()">Register Account</button>
+</ion-item>
+<ion-item>
+    <ion-label style="font-size: 12px;">First Industry</ion-label>
+    <button ion-button clear item-end style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;" (click)="registerPage()">Register Account</button>
+</ion-item>
+
+<ion-item style="margin-left:-3vh;" no-lines>
+  <ion-tags-input small color="coral" type="button" [(ngModel)]="selectionTags"  [once]="true">
+  </ion-tags-input> 
+</ion-item> 
+<ion-item  no-lines text-wrap>
+<button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+<button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+<button ion-button clear item-start>|</button>
+<button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">Benchmark Company</div></button> 
+</ion-item>   
+<ion-item  no-lines text-wrap>
+    <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+    <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+    <button ion-button clear item-start>|</button>
+    <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">Benchmark Company</div></button> 
+  </ion-item> 
+  <ion-item no-lines text-wrap>
+  <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+  <button ion-button clear item-start>|</button>
+  <div style="width:100%;height:100px;font-size: 10px;margin-bottom: -6vh; margin-left:-2.7vh;margin-right:0vh;">
+  <ion-tags-input  item-start   type="button" color="coral"   [(ngModel)]="selectionTags"  [once]="true">
+  </ion-tags-input>
+  </div>
+   <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+  </ion-item> 
+</ion-list>
+ <div  style="text-align:center;">
+  <button ion-button round style="font-size: 14px; background:coral;text-transform: none;"   type="button" (click)="phoneSubmit()">Next Step</button>
+ </div>
+</ion-content>

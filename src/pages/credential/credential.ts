@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController} from 'ionic-angular';
 import { DomSanitizer  } from '@angular/platform-browser';
 
 import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
@@ -10,6 +10,7 @@ import { ForgetPage } from '../forget/forget';
 import { MenuTabPage } from '../menu-tab/menu-tab';
 
 import * as $ from 'jquery'
+import { HomePage } from '../home/home';
 
 
 /**
@@ -76,11 +77,11 @@ export class CredentialPage {
    this.navCtrl.push(ForgetPage);
   }
   private registerPage(){
-   this.navCtrl.push(RegisterPage);
+    this.navCtrl.push(RegisterPage);
   }
 
 
-  private _htmlProperty: string = "<p><span name=\"checkmark\"style=\"display:block;font-family:Ionicons;font-size: 20px;color:danger;position:center;\"class=\"icon icon-md ion-md-checkmark\"></span></p>";
+  private _htmlProperty: string = "<p><span name=\"checkmark\"style=\"display:block;font-family:Ionicons;font-size: 20px;color:danger;position:center;\"class=\"icon icon-ios ion-md-checkmark\"></span></p>";
   public htmlProperty() {
     return this.sanitized.bypassSecurityTrustHtml(this._htmlProperty);
   }
@@ -88,10 +89,11 @@ export class CredentialPage {
   private userSubmit(){
     let alert = this.alertCtrl.create({
       message: <any> this.htmlProperty(),
-      title:"Login Successful"   
+      subTitle:"Login Successful" ,
+      buttons: ['OK']
     });
     alert.present();
-    this.navCtrl.push(MenuTabPage);
+    this.navCtrl.push(HomePage);
   }
   private phoneSubmit(){
 

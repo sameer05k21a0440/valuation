@@ -20,6 +20,8 @@ import { UserLoginPage } from '../pages/user-login/user-login';
 import { RegisterPage } from '../pages/register/register'; 
 import { ForgetPage } from '../pages/forget/forget';
 
+import { SelectionConfirmationPage} from '../pages/selection-confirmation/selection-confirmation';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -50,7 +52,8 @@ messagingSenderId: "759257827636"});
     HomePage,
     MenuTabPage,
     ForgetPage,
-    RegisterPage
+    RegisterPage,
+    SelectionConfirmationPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ messagingSenderId: "759257827636"});
     HomePage,
     MenuTabPage,
     ForgetPage,
-    RegisterPage
+    RegisterPage,
+    SelectionConfirmationPage
     
   ],
   providers: [
