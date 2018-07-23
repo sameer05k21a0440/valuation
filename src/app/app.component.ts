@@ -15,7 +15,7 @@ import { SelectionConfirmationPage } from '../pages/selection-confirmation/selec
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = SelectionConfirmationPage;
+  rootPage:any = CredentialPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private events:Events) {
     platform.ready().then(() => {
