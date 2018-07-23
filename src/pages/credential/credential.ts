@@ -81,22 +81,45 @@ export class CredentialPage {
   }
 
 
-  private _htmlProperty: string = "<p><span name=\"checkmark\"style=\"display:block;font-family:Ionicons;font-size: 20px;color:danger;position:center;\"class=\"icon icon-ios ion-md-checkmark\"></span></p>";
+  private _htmlProperty: string ="<p><span style=\"background:url(../../assets/imgs/login-alert.png)repeat 0 0;width:100%;height:auto;background-repeat: no-repeat, repeat;\"></span> </p>"; 
   public htmlProperty() {
     return this.sanitized.bypassSecurityTrustHtml(this._htmlProperty);
   }
 
   private userSubmit(){
     let alert = this.alertCtrl.create({
-      message: <any> this.htmlProperty(),
-      subTitle:"Login Successful" ,
-      buttons: ['OK']
+      title: '<h3>Login Successfully!</h3>',
+      //message: <any> this.htmlProperty(),
+      message:'<img style="width:50%;height:10px; position:relative;"  src="../../assets/imgs/login-alert.png" alt="logo"/>',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.navCtrl.push(HomePage);
+          }
+        }
+      ]
+      //subTitle:"Login Successful" ,
+      //buttons: ['OK']
     });
     alert.present();
-    this.navCtrl.push(HomePage);
+    //this.navCtrl.push(HomePage);
   }
   private phoneSubmit(){
-
+    let alert = this.alertCtrl.create({
+      title: '<h3>Login Successfully!</h3>',
+      //message: <any> this.htmlProperty(),
+      message:'<img style="width:50%;height:10px; position:relative;"  src="../../assets/imgs/login-alert.png" alt="logo"/>',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.navCtrl.push(HomePage);
+          }
+        }
+      ]
+    });
+    alert.present();
 
   }
   

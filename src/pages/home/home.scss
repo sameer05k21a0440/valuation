@@ -77,6 +77,10 @@ page-home {
     margin-bottom: 4px;
 }
 p {
+    width: min-intrinsic;       /* old Chrome, Safari */
+    width: -webkit-min-content; /* less old Chrome, Safari */
+    width: -moz-min-content;    /* current Firefox */
+    width: min-content;         /* current Chrome, Safari; not IE or Edge */
     white-space: normal;
     font-size: 10px;
     font-style: normal;

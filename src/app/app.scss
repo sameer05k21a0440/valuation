@@ -23,17 +23,20 @@ ion-icon {
         font-size: 10px !important;
         width: 2em;
         height: 2em;
-        border:solid 2px white;
+        
       }
     &[class*="custom-wechat"] {
         mask-image: url(../assets/imgs/wechat.svg);
         position: absolute;
+        border:solid 2px white;
       }
       &[class*="custom-qq"] {
         mask-image: url(../assets/imgs/qq.svg);
+        position: absolute;
       }
       &[class*="custom-weibo"] {
         mask-image: url(../assets/imgs/sina-weibo.svg);
+        position: absolute;
       }
   }
 

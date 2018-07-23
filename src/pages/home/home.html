@@ -27,7 +27,7 @@
 </ion-header>
 <ion-content  padding center text-center>
   <div style="text-align: left;">
-    <button ion-button small  round  color="coralRed" type="button">Hot Industry</button>
+    <button ion-button small  round style="font-size: 12px;text-transform: none; background: coral;"  type="button">Hot Industry</button>
   </div>
 
 <ion-list  class="accordion-list" text-wrap>
@@ -43,12 +43,12 @@
    <!-- Second Level -->
    <ion-list-header *ngFor="let child of item.children; let j = index" padding>
   <!-- Direct Add Button as Fallback -->
-  <ion-item item-text-wrap>
+  <ion-item text-wrap>
   <p text-lowercase>
   {{ child.information }}</p>
   </ion-item>
    </ion-list-header>
-   <button ion-button clear item-start style="font-size: 14px;color:coral;margin-left: -27vh;margin-top: 0vh;" (click)="selectionPage()">Confirmation</button>
+   <button ion-button clear item-start style="font-size: 14px;color:coral;margin-left: -27vh;margin-top: 0vh;text-transform: none;" (click)="selectionPage()">Confirmation</button>
   </ion-list> 
 </ion-list-header>
 </ion-list>
