@@ -21,18 +21,19 @@
 </ion-tags-input>
 
 <ion-list>
- <ion-item>
- <ion-label style="font-size: 12px;">First Industry</ion-label>
- <button ion-button clear item-end style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;" (click)="registerPage()">Register Account </button>  
-</ion-item>
-<ion-item>
-  <ion-label style="font-size: 12px;">First Industry</ion-label>
-  <button ion-button clear item-end style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;" (click)="registerPage()">Register Account</button>
-</ion-item>
-<ion-item>
+  <ion-item>
     <ion-label style="font-size: 12px;">First Industry</ion-label>
-    <button ion-button clear item-end style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;" (click)="registerPage()">Register Account</button>
-</ion-item>
+    <button ion-button clear item-end  (click)="registerPage()"><p style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;">Information Technology</p></button>  
+   </ion-item>
+   <ion-item>
+     <ion-label style="font-size: 12px;">First Industry</ion-label>
+     <button ion-button clear item-end  (click)="registerPage()"><p style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;">Technical Hardware</p></button>
+   </ion-item>
+   <ion-item>
+       <ion-label style="font-size: 12px;">First Industry</ion-label>
+       <button ion-button clear item-end  (click)="registerPage()"><p style="text-align: left; font-size: 14px;color:darkorange;text-transform: none;">Electronic Equipment</p></button>
+   </ion-item>
+   
 
 <ion-item style="margin-left:-3vh;" no-lines>
   <ion-tags-input small color="coral" type="button" [(ngModel)]="selectionTags"  [once]="true">
@@ -53,11 +54,12 @@
   <ion-item no-lines text-wrap>
   <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
   <button ion-button clear item-start>|</button>
-  <div style="width:100%;height:100px;font-size: 10px;margin-bottom: -6vh; margin-left:-2.7vh;margin-right:0vh;">
+  <button ion-button small round item-start style=" width:70px;font-size: 10px;background:coral;text-transform: none;" >BenchMark</button>
+  <!-- <div style="width:100%;height:100px;font-size: 10px;margin-bottom: -6vh; margin-left:-2.7vh;margin-right:0vh;">
   <ion-tags-input  item-start   type="button" color="coral"   [(ngModel)]="selectionTags"  [once]="true">
   </ion-tags-input>
-  </div>
-   <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
+  </div> -->
+   <button ion-button clear item-start style="font-size: 10px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">Benchmark Company</div></button>
   </ion-item> 
 </ion-list>
  <div  style="text-align:center;">

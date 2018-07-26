@@ -5,42 +5,23 @@ page-home {
     max-width: 650px;;
     margin-left:-22.7vh;
     margin-right:-29.7vh;
-    margin-top:-32.5vh;
+    margin-top:-42.5vh;
 }
  .custom-search ion-label{
-     width:245px;
-    margin-top:4vh;
+    width:245px;
+    margin-top:-12vh;
     text-align: right;
     color:white;
  }
  .custom-search ion-input{
-     width:260px;
+    width:266px;
     height:35px;
-    margin-top:-5.5vh;
+    margin-top:-6vh;
     -border-radius: 20px;
     border-radius: 20px;
     border:solid 1px white;
     text-align: center;
-    
-
 }
-// .custom-search {
-//   width:250px;
-//   height:25px;
-//   margin-top:0vh;
-//   text-align: right;
-// }
-// ion-input{
-//     padding:0.5px;
-//     width:250px;
-//     height:25px;
-//     text-align: center;
-//     margin-top:-4vh;
-//     margin-bottom:-4vh;
-//     -border-radius: 10px;
-//      border-radius: 10px;
-//     border:solid 1px white; 
-// }
 .text-input::-webkit-input-placeholder{
     color: white;
     opacity: 1; /* Firefox */
@@ -67,25 +48,32 @@ page-home {
     margin-bottom: 0px;
 }
 .child-item {
-    background: #f3f2f1;
-    padding: 100px;
+    background: white;
+    padding: 2px;
 }
 .label {
     margin: 0px;
 }
 .list {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 p {
-    width: min-intrinsic;       /* old Chrome, Safari */
-    width: -webkit-min-content; /* less old Chrome, Safari */
-    width: -moz-min-content;    /* current Firefox */
-    width: min-content;         /* current Chrome, Safari; not IE or Edge */
-    white-space: normal;
     font-size: 10px;
-    font-style: normal;
-    width:auto;
-    height:auto;
+    text-transform: none;
+    //white-space: normal !important;
+
+
+
+
+    // width: min-intrinsic;       /* old Chrome, Safari */
+    // width: -webkit-min-content; /* less old Chrome, Safari */
+    // width: -moz-min-content;    /* current Firefox */
+    // width: min-content;         /* current Chrome, Safari; not IE or Edge */
+    // white-space: normal;
+    // font-size: 10px;
+    // font-style: normal;
+    // width:auto;
+    // height:auto;
   }
 
 }

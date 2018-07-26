@@ -9,6 +9,8 @@ import { MenuTabPage } from '../pages/menu-tab/menu-tab';
 
 import { CredentialPage } from '../pages/credential/credential';
 
+import { HomePage } from '../pages/home/home';
+
 import { SelectionConfirmationPage } from '../pages/selection-confirmation/selection-confirmation';
 
 @Component({

@@ -31,6 +31,7 @@ import {Firebase} from '@ionic-native/firebase';
 import { SearchDataProvider } from '../providers/search-data/search-data';
 
 import * as firebase  from 'firebase';
+import { ServiceProvider } from '../providers/service/service';
 
 firebase.initializeApp({apiKey: "AIzaSyBcJ_MiFW_shD8kHqgoUOL6O2Lf1ERRmnQ",
 authDomain: "valuation-a2264.firebaseapp.com",
@@ -84,7 +85,8 @@ messagingSenderId: "759257827636"});
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MenuTabPage,
-    SearchDataProvider
+    SearchDataProvider,
+    ServiceProvider
   ]
 })
 export class AppModule {}

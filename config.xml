@@ -86,6 +86,6 @@
     <plugin name="cordova-sms-plugin" spec="^0.1.11" />
     <allow-navigation href="http://172.23.161.1:8100" />
     <plugin name="cordova-plugin-firebase" spec="https://github.com/jestcastro/cordova-plugin-firebase" />
-    <engine name="browser" spec="5.0.3" />
-    <engine name="android" spec="7.0.0" />
+    <engine name="browser" spec="^5.0.3" />
+    <engine name="android" spec="^7.0.0" />
 </widget>

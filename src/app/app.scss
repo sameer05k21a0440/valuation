@@ -16,19 +16,18 @@
 // automatically applied to the <body> element in the app.
 ion-icon { 
     &[class*="custom-"] {
-        mask-size: contain;
-        mask-position: 40% 40%;
-        mask-repeat: no-repeat;
-        background: currentColor;
-        font-size: 10px !important;
-        width: 2em;
-        height: 2em;
-        
+      mask-size: contain;
+      mask-position: 40% 40%;
+      mask-repeat: no-repeat;
+      background: coral;
+      font-size: 10px !important;
+      width: 2em;
+      height: 2em; 
+      border:solid 10px white;
       }
     &[class*="custom-wechat"] {
-        mask-image: url(../assets/imgs/wechat.svg);
-        position: absolute;
-        border:solid 2px white;
+      mask-image: url(../assets/imgs/wechat.svg);
+ 
       }
       &[class*="custom-qq"] {
         mask-image: url(../assets/imgs/qq.svg);
