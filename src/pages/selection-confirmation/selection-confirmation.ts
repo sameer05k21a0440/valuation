@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { MenuPage } from '../menu/menu';
+import { AboutPage } from '../about/about';
+
 
 /**
  * Generated class for the SelectionConfirmationPage page.
@@ -21,8 +23,12 @@ export class SelectionConfirmationPage {
     console.log('ionViewDidLoad SelectionConfirmationPage');
   }
 
-  private homePage(){
-    this.navCtrl.push(HomePage);
+  private menuPage(){
+    this.navCtrl.push(MenuPage);
+  }
+
+  private gotoNext(){
+    this.navCtrl.push(AboutPage);
   }
 
 }

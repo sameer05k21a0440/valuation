@@ -18,7 +18,7 @@ import { ForgetPage } from '../forget/forget';
 import { MenuTabPage } from '../menu-tab/menu-tab';
 
 import * as $ from 'jquery'
-import { HomePage } from '../home/home';
+import { MenuPage } from '../menu/menu';
 
 
 /**
@@ -105,7 +105,7 @@ export class CredentialPage {
         {
           text: 'OK',
           handler: () => {
-            this.navCtrl.push(HomePage);
+            this.navCtrl.setRoot(MenuPage);
           }
         }
       ]
@@ -127,12 +127,13 @@ export class CredentialPage {
         {
           text: 'OK',
           handler: () => {
-            let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
-            firebase.auth().signInWithCredential(signInCredential).then((info)=>{
-              this.navCtrl.push(HomePage);
-            },function (error){
-              console.log("Error On Credentials"+error);
-            });
+            this.navCtrl.setRoot(MenuPage);
+            // let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
+            // firebase.auth().signInWithCredential(signInCredential).then((info)=>{
+            //   this.navCtrl.push(HomePage);
+            // },function (error){
+            //   console.log("Error On Credentials"+error);
+            // });
           }
         }
       ]
@@ -145,6 +146,11 @@ private handleSwitchOTP(phoneNumber:number){
   var maxSecTime=60;
   var setIntrvl;
   this.resultUnlock = $('.switch-input').is(':checked')?'SEND-OTP':'OFF';
+  //var countryListCode =$('.select-view option:selected').text();
+ // var countryCode = document.getElementById("ddlViewBy");
+  //var strUser =  countryCode.options(countryCode.selectedIndex).value; 
+ //select-view
+  //alert(countryListCode);
   if(String(phoneNumber) !="undefined" && this.resultUnlock=='SEND-OTP'){
     this.unlockOTP = !this.unlockOTP;
      // Update the count down every 1 second
@@ -156,15 +162,38 @@ private handleSwitchOTP(phoneNumber:number){
           }else if(maxSecTime>0){
             document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
             maxSecTime--;
-        //     (<any>window).FirebasePlugin.verifyPhoneNumber(86+phoneNumber,60,(credential)=>{
-        //     this.verificationId=credential.verificationId;
-        //   },function(error){
-        //     const toast=this.toast.create({
-        //       message: 'Text Msg was not Send',
-        //       duration:3000
-        //   });
-        //   toast.present();
-        // });
+            alert(this.countryCode)
+            if(this.countryCode=='cn'){
+              (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
+                this.verificationId=credential.verificationId;
+              },function(error){
+                const toast=this.toast.create({
+                        message: 'Text Msg was not Send',
+                        duration:3000
+              });
+              toast.present();
+            });
+          }else if(this.countryCode=='in'){
+            (<any>window).FirebasePlugin.verifyPhoneNumber(+91+phoneNumber,60,(credential)=>{
+              this.verificationId=credential.verificationId;
+            },function(error){
+              const toast=this.toast.create({
+                      message: 'Text Msg was not Send',
+                      duration:3000
+            });
+            toast.present();
+          });
+          }else if(this.countryCode=='us'){
+            (<any>window).FirebasePlugin.verifyPhoneNumber(+1+phoneNumber,60,(credential)=>{
+              this.verificationId=credential.verificationId;
+            },function(error){
+              const toast=this.toast.create({
+                      message: 'Text Msg was not Send',
+                      duration:3000
+            });
+            toast.present();
+          });
+          }
       }
      },1000); //1 Sec
   }else if(this.resultUnlock=='SEND-OTP'&&  String(phoneNumber)=="undefined"){

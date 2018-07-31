@@ -7,7 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>About</ion-title>
+      <ion-buttons  left>
+          <button ion-button (click)="menuPage()">
+              <ion-icon   name="arrow-back"></ion-icon>
+          </button>    
+          </ion-buttons>
+    <ion-title> {{ "about" | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>

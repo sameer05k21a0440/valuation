@@ -1,0 +1,42 @@
+ {
+   "userLogin":"User Login",
+   "phoneLogin":"Phone Login",
+    "enterUserName":"Enter UserName",
+    "enterValidUserName":"Please enter a valid user name",
+    "enterPassword":"Enter Password",
+    "enterValidPassword":"Password should be at least 8characters long and contain one number, one character and one special character.",
+    "automaticLogin":"Automatic Login",
+     "btnLogin":"Login",
+     "forgetPassword":"forgetPassword",
+     "RegisterAccount":"Register Account",
+
+     "enterMobileNumber":"Enter Mobile Number",
+     "enterOTP":"Enter OTP",
+      "enterValidOTP":"Please enter a valid Code.",
+
+      "selectIndustry":"Select Industry",
+      "manualIndustry":"Manual Industry",
+      "confirmation":"Confirmation",
+      "hotIndustry":"Hot Industry",
+
+      "selectConfirmation":"Select Confirmation",
+      "industryOne":"Industry One",
+      "industryTwo":"Industry Two",
+      "industryThree":"Industry Three",
+      "informationTech":"Information Technology",
+      "technicalHardware":"Technical Hardware",
+      "electronicEquipment":"Electronic Equipment",
+      "benchmarkCompany":"Benchmark Company",
+      "benchmark":"BenchMark",
+      "btnNextStep":"Next Step",
+
+
+    "home":"Home",
+    "about": "About",
+    "contact": "Contact",
+    "settings" :"Settings"
+   
+   }
+
+ 
+

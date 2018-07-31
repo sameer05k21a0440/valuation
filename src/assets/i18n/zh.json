@@ -1,0 +1,38 @@
+ 
+  {
+    "userLogin":"用户登录",
+    "phoneLogin":"电话登录",
+    "enterUserName":"输入用户名",
+    "enterValidUserName":"输入有效用户名",
+    "enterPassword":"输入密码",
+    "enterValidPassword":"密码至少有8个字符长，包含一个数字、一个字符和一个特殊字符",
+    "automaticLogin":"自动登入",
+    "btnLogin":"登录",
+    "forgetPassword":"忘记密码",
+    "RegisterAccount":"注册帐户",
+    "enterMobileNumber":"输入移动电话号码",
+    "enterOTP":"输入一次密码",
+    "enterValidOTP":"请输入一个有效的代码。",
+    "selectIndustry":"精选行业",
+    "manualIndustry":"手工业",
+    "confirmation":"确认",
+    "hotIndustry":"热门行业",
+
+    "selectConfirmation":"选择确认",
+    "industryOne":"一产业",
+    "industryTwo":"二产业",
+    "industryThree":"三产业",
+    "informationTech":"信息技术",
+    "technicalHardware":"技术硬件",
+    "electronicEquipment":"电子设备",
+    "benchmarkCompany":"基准公司",
+    "benchmark":"基准",
+    "btnNextStep":"下一步",
+
+
+    "home":"家",
+    "about": "关于",
+   "contact": "接触",
+   "settings" :"设置"
+   
+  }

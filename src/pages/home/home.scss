@@ -1,12 +1,13 @@
 page-home {
-.home-bgcolor img {
+   img {
     overflow: hidden; 
     max-height: auto;
     max-width: 650px;;
     margin-left:-22.7vh;
-    margin-right:-29.7vh;
-    margin-top:-42.5vh;
+    margin-top:-40.5vh;
 }
+ 
+
  .custom-search ion-label{
     width:245px;
     margin-top:-12vh;
@@ -61,6 +62,7 @@ p {
     font-size: 10px;
     text-transform: none;
     //white-space: normal !important;
+    font-family:sans-serif;
 
 
 
@@ -75,5 +77,8 @@ p {
     // width:auto;
     // height:auto;
   }
+  ion-navbar{
 
+      background: url(../../assets/imgs/login_new_image.png) repeat-x center center;
+  }
 }
