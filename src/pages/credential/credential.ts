@@ -36,7 +36,7 @@ export class CredentialPage {
   UserPage:string ="UserLogin";
   private userLoginFormGroup:FormGroup;
   private phoneLoginFormGroup:FormGroup;
-  countryCode:any ="cn";
+  countryCode:any;
   phoneNumber:number;
   verificationCode:number;
   verificationId:any;
@@ -50,6 +50,7 @@ export class CredentialPage {
  
   
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private alertCtrl: AlertController,private sanitized: DomSanitizer,private toast:ToastController) {
+    this.countryCode="cn";
     this.userLoginFormGroup=this.formBuilder.group({
       userName:new FormControl('',Validators.compose([Validators.required])),
       password:new FormControl('',Validators.compose([Validators.pattern(regexValidators.password), Validators.required]
@@ -142,7 +143,7 @@ export class CredentialPage {
 
   }
   
-private handleSwitchOTP(phoneNumber:number){
+private handleSwitchOTP(phoneNumber:number,countryCode:any){
   var maxSecTime=60;
   var setIntrvl;
   this.resultUnlock = $('.switch-input').is(':checked')?'SEND-OTP':'OFF';
@@ -151,7 +152,7 @@ private handleSwitchOTP(phoneNumber:number){
   //var strUser =  countryCode.options(countryCode.selectedIndex).value; 
  //select-view
   //alert(countryListCode);
-  if(String(phoneNumber) !="undefined" && this.resultUnlock=='SEND-OTP'){
+  if(String(phoneNumber) !="undefined" && this.resultUnlock=='SEND-OTP' && this.countryCode!="undefined"){
     this.unlockOTP = !this.unlockOTP;
      // Update the count down every 1 second
      setIntrvl = setInterval(function() {
@@ -162,8 +163,9 @@ private handleSwitchOTP(phoneNumber:number){
           }else if(maxSecTime>0){
             document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
             maxSecTime--;
-            alert(this.countryCode)
-            if(this.countryCode=='cn'){
+           // alert(String(this.countryCode))
+            if(countryCode=='cn'){
+              alert(countryCode +"dsds");
               (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
                 this.verificationId=credential.verificationId;
               },function(error){
@@ -173,7 +175,7 @@ private handleSwitchOTP(phoneNumber:number){
               });
               toast.present();
             });
-          }else if(this.countryCode=='in'){
+          }else if(countryCode=='in'){
             (<any>window).FirebasePlugin.verifyPhoneNumber(+91+phoneNumber,60,(credential)=>{
               this.verificationId=credential.verificationId;
             },function(error){
@@ -183,7 +185,7 @@ private handleSwitchOTP(phoneNumber:number){
             });
             toast.present();
           });
-          }else if(this.countryCode=='us'){
+          }else if(countryCode=='us'){
             (<any>window).FirebasePlugin.verifyPhoneNumber(+1+phoneNumber,60,(credential)=>{
               this.verificationId=credential.verificationId;
             },function(error){
@@ -207,4 +209,6 @@ private handleSwitchOTP(phoneNumber:number){
    }
 
 }
+
+ 
 }

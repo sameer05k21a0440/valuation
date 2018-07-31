@@ -32,10 +32,6 @@ export class SettingsPage {
     this.navCtrl.push(MenuPage);
   }
 
-  switchLanguage() {
-    this.translate.setDefaultLang(this.lang);
-    this.translate.use(this.lang);
-   
-  }
+  
 
 }
