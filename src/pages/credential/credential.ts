@@ -104,6 +104,9 @@ export class CredentialPage {
       message:'<img style="width:50%;height:10px; position:relative;"  src="assets/imgs/login-alert.png" alt="logo"/>',
       buttons: [
         {
+          text: 'Cancel'
+       },
+        {
           text: 'OK',
           handler: () => {
             this.navCtrl.setRoot(MenuPage);
@@ -128,13 +131,16 @@ export class CredentialPage {
         {
           text: 'OK',
           handler: () => {
-            this.navCtrl.setRoot(MenuPage);
-            // let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
-            // firebase.auth().signInWithCredential(signInCredential).then((info)=>{
-            //   this.navCtrl.push(HomePage);
-            // },function (error){
-            //   console.log("Error On Credentials"+error);
-            // });
+            let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
+            // sign in with the credential
+            firebase.auth().signInWithCredential(signInCredential).then((info)=>{
+              //// OR link to an account
+              firebase.auth().currentUser.linkWithCredential(signInCredential);
+
+              this.navCtrl.setRoot(MenuPage);
+             },function (error){
+               console.log("Error On Credentials"+error);
+            });
           }
         }
       ]
@@ -165,9 +171,9 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
             maxSecTime--;
            // alert(String(this.countryCode))
             if(countryCode=='cn'){
-              alert(countryCode +"dsds");
               (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
                 this.verificationId=credential.verificationId;
+                console.log(this.verificationId+"verificationId")
               },function(error){
                 const toast=this.toast.create({
                         message: 'Text Msg was not Send',

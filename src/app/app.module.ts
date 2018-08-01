@@ -24,7 +24,7 @@ import {LoginPage} from '../pages/login/login';
 import { UserLoginPage } from '../pages/user-login/user-login';
 import { RegisterPage } from '../pages/register/register'; 
 import { ForgetPage } from '../pages/forget/forget';
-import { SettingsPage } from '../pages/settings/settings';
+import { ProfilePage } from  '../pages/profile/profile';
 import { LagoutPage } from '../pages/lagout/lagout';
 
 
@@ -72,7 +72,7 @@ export function createTranslateLoader(http: HttpClient) {
     ForgetPage,
     RegisterPage,
     LagoutPage,
-    SettingsPage,
+    ProfilePage,
     SelectionConfirmationPage
   ],
   imports: [
@@ -105,7 +105,7 @@ export function createTranslateLoader(http: HttpClient) {
     ForgetPage,
     RegisterPage,
     LagoutPage,
-    SettingsPage,
+    ProfilePage,
     SelectionConfirmationPage
     
   ],

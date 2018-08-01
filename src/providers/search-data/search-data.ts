@@ -13,17 +13,13 @@ export class SearchDataProvider {
   constructor(public http: Http) {
     console.log('Hello SearchDataProvider Provider');
     this.items = [
-      {title: 'Industry One'},
-      {title: 'Industry Two'},
-      {title: 'Industry Three'},
-      {title: 'Industry Four'},
-      {title: 'Industry Five'},
-      {title: 'Industry Six'}
+      {name: 'nonDailyGoods'},
+      {name: 'internetSoftware&Hardware'},
+      {name: 'electronicComponents'}
   ]
   }
 
   filterItems(searchTerm){
- 
     return this.items.filter((item) => {
         return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });    

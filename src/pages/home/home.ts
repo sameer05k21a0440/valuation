@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/debounceTime';
 
 import { SearchDataProvider } from '../../providers/search-data/search-data';
+import { Observable } from 'rxjs/Rx';
 
 /**
  * Generated class for the HomePage page.
@@ -29,9 +30,11 @@ export class HomePage {
   items:any;
   isSearchOpened=false;
   industryInformation:any[];
+  data:Observable<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams,private app:App, private http:Http,private searchDataList:SearchDataProvider) {
-    let localData = this.http.get('assets/information.json').map(res => res.json().items);
-    localData.subscribe(data => {
+    this.doRefresh(0);
+    this.data = this.http.get('assets/information.json').map(res => res.json().items);
+    this.data.subscribe(data => {
       this.industryInformation = data;
     });
 
@@ -65,22 +68,19 @@ export class HomePage {
   private selectionPage(){
     this.navCtrl.push(SelectionConfirmationPage);
   }
-  // private onSearchIndustry(event ){
-  //   //console.log(event.target.value +"Seach ")
-  //   this.searching=false;
-  // }
 
-  private onSearchIndustry() {
-    this.items = this.searchDataList.filterItems(this.searchQuery);
+  private onSearchIndustry( ) {
+    this.industryInformation=this.searchDataList.filterItems(this.searchQuery);
 }
  private doRefresh(refresher) {
   console.log('Begin async operation', refresher);
-  let localData = this.http.get('assets/information.json').map(res => res.json().items);
-  localData.subscribe(data => {
+  this.data= this.http.get('assets/information.json').map(res => res.json().items);
+  this.data.subscribe(data => {
     this.industryInformation = data;
+    if(refresher!=0)
     refresher.complete();
   });
 }
-  
+
 
 }

@@ -8,16 +8,28 @@
     "automaticLogin":"Automatic Login",
      "btnLogin":"Login",
      "forgetPassword":"forgetPassword",
-     "RegisterAccount":"Register Account",
+     "registerAccount":"Register Account",
 
      "enterMobileNumber":"Enter Mobile Number",
      "enterOTP":"Enter OTP",
       "enterValidOTP":"Please enter a valid Code.",
+       "noLanding":"No Landing",
+
+      "titlemenu":"Menu",
 
       "selectIndustry":"Select Industry",
       "manualIndustry":"Manual Industry",
       "confirmation":"Confirmation",
       "hotIndustry":"Hot Industry",
+
+      "nonDailyGoods":"Non-daily Consumer goods",
+      "internetSoftware&Hardware":"Internet Software and Services",
+      "nonDailyGoods_Child":"The defination of non-everyday consumer goods,in a nutshell,summerizes the business and continent of industry.",
+      "internetSoftware&Hardware_Child":"Refers to the business activities that use computers,communication networks etc.To produce, collect, process process, store,transport,retrive and use information.",
+      "electronicComponents":"Electronic components and equipment",
+      "electronicComponents_Child":" These leads connect to create an electronic circuit with a particular function (for example an amplifier, radio receiver, or oscillator).",
+      "medical&HealthSupplies":"Medical and Health Supplies",
+       "medical&HealthSupplies_Child":"Medical and Health Details",
 
       "selectConfirmation":"Select Confirmation",
       "industryOne":"Industry One",
@@ -30,11 +42,22 @@
       "benchmark":"BenchMark",
       "btnNextStep":"Next Step",
 
+ 
+
 
     "home":"Home",
     "about": "About",
     "contact": "Contact",
-    "settings" :"Settings"
+    "signOut":"Sign out",
+    "profile" :"Profile",
+
+    "user":"User",
+    "general":"General",
+    "language":"Language",
+    "enableNotification":"Enable notifications",
+    "other":"Other",
+    "logout":"Logout"
+
    
    }
 

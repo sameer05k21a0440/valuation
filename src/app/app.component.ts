@@ -29,6 +29,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       translate.setDefaultLang('zh');
+      translate.use('zh');
       statusBar.styleDefault();
       splashScreen.hide();
 

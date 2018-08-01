@@ -9,14 +9,30 @@
     "automaticLogin":"自动登入",
     "btnLogin":"登录",
     "forgetPassword":"忘记密码",
-    "RegisterAccount":"注册帐户",
+    "registerAccount":"注册帐户",
     "enterMobileNumber":"输入移动电话号码",
     "enterOTP":"输入一次密码",
     "enterValidOTP":"请输入一个有效的代码。",
+    "noLanding":"不着陆",
+
+    "titlemenu":"菜单",
+
+ 
+
+
     "selectIndustry":"精选行业",
     "manualIndustry":"手工业",
     "confirmation":"确认",
     "hotIndustry":"热门行业",
+    "nonDailyGoods":"非日用消费品",
+    "internetSoftware&Hardware":"互联网软件与服务",
+    "nonDailyGoods_Child":"简而言之，非日常消费品的定义，概括了工业和工业的大陆。",
+    "internetSoftware&Hardware_Child":"指使用计算机、通信网络等生产、收集、处理、存储、运输、回收和使用信息的商业活动。",
+    "electronicComponents":"电子元器件",
+    "electronicComponents_Child":"这些引线连接以产生具有特定功能的电子电路（例如，放大器、无线电接收器或振荡器）。",
+    "medical&HealthSupplies":"医疗卫生用品",
+    "medical&HealthSupplies_Child":"医疗卫生细节",
+
 
     "selectConfirmation":"选择确认",
     "industryOne":"一产业",
@@ -33,6 +49,13 @@
     "home":"家",
     "about": "关于",
    "contact": "接触",
-   "settings" :"设置"
-   
+   "signOut":"退出",
+   "profile" :"简况",
+
+   "user":"用户",
+   "general":"一般",
+   "language":"语言",
+   "enableNotification":"启用通知",
+   "other":"其他",
+   "logout":"注销"
   }

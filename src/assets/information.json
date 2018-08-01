@@ -1,24 +1,41 @@
 {
     "items": [
         {
-            "name": "Non-daily Consumer goods",
+            "name": "nonDailyGoods",
             "children": [
                 {
                     "name": "sub-consumer-description",
-                    "information": "The defination of non-everyday consumer goods,in a nutshell,summerizes the business and continent of industry."
+                    "information": "nonDailyGoods_Child"
                 }
             ]
         },
         { 
-            "name": "Internet Software and Services",
+            "name": "internetSoftware&Hardware",
             "children": [
                 {
                     "name": "sub-consumer-description",
-                    "information": "Refers to the business activities that use computers,communication networks etc.To produce, collect, process process, store,transport,retrive and use information."
+                    "information": "internetSoftware&Hardware_Child"
                 }
             ]
 
+        },{
+            "name": "electronicComponents",
+            "children": [
+                {
+                    "name": "sub-consumer-description",
+                    "information": "electronicComponents_Child"
+                }]
+        },{
+            "name": "medical&HealthSupplies",
+            "children": [
+                {
+                    "name": "sub-consumer-description",
+                    "information": "medical&HealthSupplies_Child"
+                }]
+
         }
-            ]
-        }
+
+
+
+    ]}
     

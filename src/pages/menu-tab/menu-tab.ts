@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the MenuTabPage tabs.
@@ -20,6 +21,7 @@ export class MenuTabPage {
   homeRoot = HomePage
   aboutRoot = AboutPage
   contactsRoot = ContactPage
+  profileRoot=ProfilePage
 
 
   constructor() {}
