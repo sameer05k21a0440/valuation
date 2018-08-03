@@ -18,6 +18,7 @@ import { MenuTabPage } from '../menu-tab/menu-tab';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+  countryCode:any;
   phoneNumber:number;
   verificationCode:number;
   verificationId:any;
@@ -26,8 +27,11 @@ export class RegisterPage {
   private registerFormGroup:FormGroup;
   private tags = ['Enterprise', 'Organization', 'Personal'];
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private toast:ToastController) {
+    this.countryCode="cn";
     this.registerFormGroup=this.formBuilder.group({
-      telNumber:new FormControl('',Validators.compose([Validators.required])),
+      userName:new FormControl('',Validators.compose([Validators.required])),
+      phoneNumber:new FormControl('',Validators.compose([Validators.required])),
+      countryCode:new FormControl('',Validators.compose([Validators.required])),
       verificationCode:new FormControl('',Validators.compose([Validators.required])),
       password:new FormControl('',Validators.compose([Validators.pattern(regexValidators.password), Validators.required])),
       tags: new FormControl('', [])

@@ -30,7 +30,6 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^3.0.1",
     "@types/jquery": "^3.3.4",
-    "cordova-android": "^7.0.0",
     "cordova-browser": "^5.0.3",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase": "git+https://github.com/jestcastro/cordova-plugin-firebase.git",
@@ -67,8 +66,7 @@
       "cordova-plugin-firebase": {}
     },
     "platforms": [
-      "browser",
-      "android"
+      "browser"
     ]
   },
   "main": "index.js",

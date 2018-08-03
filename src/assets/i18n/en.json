@@ -1,4 +1,5 @@
  {
+ 
    "userLogin":"User Login",
    "phoneLogin":"Phone Login",
     "enterUserName":"Enter UserName",
@@ -14,6 +15,9 @@
      "enterOTP":"Enter OTP",
       "enterValidOTP":"Please enter a valid Code.",
        "noLanding":"No Landing",
+
+       "register":"Register",
+       "selectIdentity":"Selected Identity",
 
       "titlemenu":"Menu",
 

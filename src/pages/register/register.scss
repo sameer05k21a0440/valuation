@@ -1,4 +1,8 @@
 page-register {
+ion-label{
+    color:#7f7f7f;
+    position: relative;
+}
 .register_container{
     margin-left:auto; 
     margin-right: auto;
@@ -7,16 +11,18 @@ page-register {
     width: 100%;
     height: auto;
     margin-bottom:0px;
-    margin-top:0vh;
+    margin-top:-2vh;
 }
 .regSubmit{
     position: relative;
     text-align: center;
     background-color: coral;
   }
-
-
-
-};
+  .validator-error {
+    color: color($colors, danger);
+    padding-top: 8px;
+    padding-left: 16px;
+  }
+}
 
  
