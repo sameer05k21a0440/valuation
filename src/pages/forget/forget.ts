@@ -18,6 +18,8 @@ import * as math from 'mathjs'; // don't named as Math, this will conflict with 
   templateUrl: 'forget.html',
 })
 export class ForgetPage {
+  countryCode:any='cn';
+  getcodeBtn:string ='Get Code';
   public type = 'password';
   public showPass = false;
   public forgetFormGroup:FormGroup;
@@ -30,11 +32,12 @@ export class ForgetPage {
   //Captcha 
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private toast: ToastController) {
     this.forgetFormGroup=this.formBuilder.group({
-      telNumber:new FormControl('',Validators.compose([Validators.required])),
+      countryCode:new FormControl('',Validators.compose([Validators.required])),
+      phoneNumber:new FormControl('',Validators.compose([Validators.required])),
       verificationCode:new FormControl('',Validators.compose([Validators.required])),
       password:new FormControl('',Validators.compose([Validators.pattern(regexValidators.password), Validators.required])),
       typeCaptcha:new FormControl('',Validators.compose([Validators.required])),
-      captcha:new FormControl('s',Validators.compose([Validators.required]))
+      captcha:new FormControl('',Validators.compose([Validators.required]))
     });
 
     this.captcha_alpha=['A', 'B', 'C','D', 'E', 'F','G', 'H', 'I','J', 'K', 'L','M', 'N', 'O','P', 'Q', 'R','S', 'T', 'U','V', 'W', 'X','Y','Z'];  
@@ -49,23 +52,55 @@ export class ForgetPage {
   }
 
   ionViewDidLoad() {
+    document.getElementById("displayDiv").innerHTML=this.getcodeBtn;
     console.log('ionViewDidLoad ForgetPage');
   }
-  private getVerificactionCode(phoneNumber:number){
+  private getVerificactionCode(countryCode:any,phoneNumber:number){
+    var maxSecTime=60;
+    var setIntrvl;
     if(String(phoneNumber) !="undefined"){
-      //getVerificationID  verifyPhoneNumber
-      //alert("Before Send "+86+phoneNumber);
-      (<any>window).FirebasePlugin.verifyPhoneNumber(86+phoneNumber,60,(credential)=>{
-          //alert("SMS SENT Successfully"+86+phoneNumber);
-          console.log(credential);
-          this.verificationId=credential.verificationId;
-      },function(error){
-        const toast=this.toast.create({
-          message: 'Text Msg was not Send',
-          duration:3000
-        });
-        toast.present();
-      });
+  
+      setIntrvl = setInterval(function() {
+        if (maxSecTime == 0) {
+          clearInterval(setIntrvl);
+          document.getElementById("displayDiv").innerHTML = "EXPIRED";
+        }else if(maxSecTime>0){
+          document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
+          maxSecTime--;
+          if(countryCode=='cn'){
+            (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
+              this.verificationId=credential.verificationId;
+              console.log(this.verificationId+"verificationId")
+            },function(error){
+              const toast=this.toast.create({
+                      message: 'Text Msg was not Send',
+                      duration:3000
+            });
+            toast.present();
+          });
+          }else if(countryCode=='in'){
+            (<any>window).FirebasePlugin.verifyPhoneNumber(+91+phoneNumber,60,(credential)=>{
+              this.verificationId=credential.verificationId;
+            },function(error){
+              const toast=this.toast.create({
+                      message: 'Text Msg was not Send',
+                      duration:3000
+            });
+            toast.present();
+          });
+          }else if(countryCode=='us'){
+            (<any>window).FirebasePlugin.verifyPhoneNumber(+1+phoneNumber,60,(credential)=>{
+              this.verificationId=credential.verificationId;
+            },function(error){
+              const toast=this.toast.create({
+                      message: 'Text Msg was not Send',
+                      duration:3000
+            });
+            toast.present();
+          });
+          }
+        }
+      },1000);
          }else{
             const  toast=this.toast.create({
             message: 'Please enter mobile number',

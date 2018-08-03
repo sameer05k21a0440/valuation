@@ -18,10 +18,12 @@ import { MenuTabPage } from '../menu-tab/menu-tab';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+  userName:any;
   countryCode:any;
   phoneNumber:number;
   verificationCode:number;
   verificationId:any;
+  getcodeBtn:string ='Get Code';
   public type = 'password';
   public showPass = false;
   private registerFormGroup:FormGroup;
@@ -39,23 +41,54 @@ export class RegisterPage {
   }
 
   ionViewDidLoad() {
+    document.getElementById("displayDiv").innerHTML=this.getcodeBtn;
     console.log('ionViewDidLoad RegisterPage');
   }
-  private getVerificactionCode(phoneNumber:number){
-    if(String(phoneNumber) !="undefined"){
-      //getVerificationID  verifyPhoneNumber
-      //alert("Before Send "+86+phoneNumber);
-      (<any>window).FirebasePlugin.verifyPhoneNumber(86+phoneNumber,60,(credential)=>{
-         // alert("SMS SENT Successfully"+86+phoneNumber);
-          console.log(credential);
-          this.verificationId=credential.verificationId;
-      },function(error){
-        const toast=this.toast.create({
-          message: 'Text Msg was not Send',
-          duration:3000
-        });
-        toast.present();
-      });
+  private getVerificactionCode(countryCode:any, phoneNumber:number){
+    var maxSecTime=60;
+    var setIntrvl;
+    if(String(phoneNumber) !="undefined" && String(this.userName !="undefined")){
+        setIntrvl = setInterval(function() {
+          if (maxSecTime == 0) {
+            clearInterval(setIntrvl);
+            document.getElementById("displayDiv").innerHTML = "EXPIRED";
+          }else if(maxSecTime>0){
+            document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
+            maxSecTime--;
+            if(countryCode=='cn'){
+              (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
+                this.verificationId=credential.verificationId;
+                console.log(this.verificationId+"verificationId")
+              },function(error){
+                const toast=this.toast.create({
+                        message: 'Text Msg was not Send',
+                        duration:3000
+              });
+              toast.present();
+            });
+            }else if(countryCode=='in'){
+              (<any>window).FirebasePlugin.verifyPhoneNumber(+91+phoneNumber,60,(credential)=>{
+                this.verificationId=credential.verificationId;
+              },function(error){
+                const toast=this.toast.create({
+                        message: 'Text Msg was not Send',
+                        duration:3000
+              });
+              toast.present();
+            });
+            }else if(countryCode=='us'){
+              (<any>window).FirebasePlugin.verifyPhoneNumber(+1+phoneNumber,60,(credential)=>{
+                this.verificationId=credential.verificationId;
+              },function(error){
+                const toast=this.toast.create({
+                        message: 'Text Msg was not Send',
+                        duration:3000
+              });
+              toast.present();
+            });
+            }
+          }
+        },1000);
          }else{
             const  toast=this.toast.create({
             message: 'Please enter mobile number',

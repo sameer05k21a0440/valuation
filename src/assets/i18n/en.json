@@ -19,6 +19,9 @@
        "register":"Register",
        "selectIdentity":"Selected Identity",
 
+       "enterLetters":"Enter Letters",
+       "resetPassword":"Reset Password",
+
       "titlemenu":"Menu",
 
       "selectIndustry":"Select Industry",

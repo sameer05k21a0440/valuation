@@ -62,9 +62,11 @@
             <ion-icon name="text" item-start></ion-icon>
             {{ "enterOTP" | translate }}</ion-label> 
             <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
-              </ion-input>
-              <button  ion-button outline  color="danger" type="button" item-right (click)="getVerificactionCode(phoneNumber)">
-              <div style="margin-bottom: -8px;margin-right:-1vh; font-size: 14px;">Get Code</div></button>
+            </ion-input>
+            <button ion-button item-right small outline round color="danger" type="button" (click)="getVerificactionCode(countryCode,phoneNumber)">
+            <div  style="margin-right: 0vh; margin-bottom: 0vh;  font-size: 12px;"></div><p id="displayDiv" style="text-transform: none; width:40px; text-align: center;"></p>  
+            </button>
+
              <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
             </ion-item>
             <ion-item class="register_rounded">
@@ -81,7 +83,7 @@
           <div *ngIf="registerFormGroup.controls.password.hasError('pattern') &&
           (registerFormGroup.controls.password.dirty || submitted)"
           class="validator-error">
-          Passwords should be at least 8 characters long and contain one number, one character and one special character.
+          {{ "enterValidPassword" | translate }}
           </div>
           <ion-label   fixed>
                 {{"selectIdentity"|translate}} 
@@ -91,9 +93,9 @@
                </ion-tags-input>
               </div>
             </ion-list>
-             <div style="position:relative;width:100%; height:auto;text-transform: uppercase;margin-top:-2vh;margin-bottom: -2vh;">
-              <button ion-button full round  type="submit" (click)="HomePage()" class="regSubmit" [disabled]="!registerFormGroup.valid" ><ion-label color="stable" fixed>{{"register"|translate}}</ion-label></button>
-             </div>
+            <div style="position:relative;width:90%;">
+         <button ion-button full round  style="background:coral;text-transform: none;"  type="submit" (click)="HomePage()"  [disabled]="!registerFormGroup.valid" >{{"register"|translate}}</button>
+            </div>
     </ion-col>
     </ion-row>
   </form>
