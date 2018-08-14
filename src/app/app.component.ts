@@ -18,12 +18,13 @@ import { SelectionConfirmationPage } from '../pages/selection-confirmation/selec
 
 import { TranslateService } from '@ngx-translate/core';
 
+
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = CredentialPage;
-  lang = 'en';
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private events:Events,private translate:TranslateService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

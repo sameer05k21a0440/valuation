@@ -17,19 +17,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-padding>
  <ion-list no-lines>
   <ion-list-header>
   <ion-avatar item-start>
-    <img id="profile-image" src="assets/imgs/profile-2.jpg"/>
+    <img id="profile-image" [src]="user.imageUrl " />  <!--//? user.imageUrl : placeholderPicture -->
     </ion-avatar>
-    <p class="username">{{userName}}</p>
-    <p>{{'user' | translate}}</p>
+    <!-- Icons -->
+    <!--Basic: auto-select the icon based on the platform 
+    user.imageUrl ? user.imageUrl : placeholderPicture-->
+    <button ion-button clear  icon-start large  (click)="changeProfilePicture()">
+    <ion-icon color="dark"  name="camera" style="margin-left: -2vh;"></ion-icon>
+    </button>
+
+  <p class="username">{{user.name | translate}}</p>
+    <!-- <p>{{'user' | translate}}</p> -->
   </ion-list-header>
  </ion-list>
  <ion-list no-border>
   <ion-list-header>
-      {{'general' | translate}}
+      <p class="list-header-bold">{{'general' | translate}}</p>
   </ion-list-header>
  <ion-item>
     <ion-icon name='settings' item-start></ion-icon>
@@ -40,20 +47,32 @@
     </ion-select>
   </ion-item>
  <ion-item>
-    <ion-toggle [(ngModel)]="enableNotifications" (click)="toggleNotifications()"></ion-toggle>
+    <ion-toggle [(ngModel)]="enableNotifications" (ionChange)="toggleNotifications()" [checked]="enableNotifications"></ion-toggle>
     <ion-label class="label"> {{'enableNotification' | translate}} </ion-label>
     <ion-icon name='notifications' item-start></ion-icon>
   </ion-item>
  </ion-list>
  <ion-list>
     <ion-list-header>
-      {{'other'|translate}}
+     <p class="list-header-bold">{{'other'|translate}}</p> 
     </ion-list-header>
     <ion-item>
       <ion-icon name='power' item-start></ion-icon>
       <button ion-button (click)="logOut()" item-end>
       {{'logout' | translate}}
       </button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='information-circle' item-start></ion-icon>
+      <button ion-button  clear (click)="appInfoAbout()" item-end>
+        <p style="color:#7f7f7f">V1.0</p>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='help-circle' item-start></ion-icon>
+      <button ion-button (click)="profileHelp()" item-end clear>
+         <p style="color: #7f7f7f">{{'profile.help'|translate}}</p>
+        </button>
     </ion-item>
   </ion-list>
 

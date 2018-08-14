@@ -8,21 +8,23 @@
                 <p style="margin-top:0vh;font-size: 16px;text-align: center;text-transform: none; color: white;">{{ "selectIndustry" | translate }}</p>
          </ion-title>
          <ion-searchbar *ngIf="isSearchOpened" [showCancelButton]="true" 
-          (ionCancel)="isSearchOpened=false"  (ionInput)="onSearchIndustry()" [(ngModel)]="searchQuery" >
+          autocomplete="on"
+          placeholder="Serach for Trading"
+          (ionCancel)="isSearchOpened=false"  (ionInput)="onSearchIndustry($event)" [(ngModel)]="searchQuery" >
          </ion-searchbar> 
          <ion-buttons end style="margin-top:-5vh;">
            <button ion-button icon-only *ngIf="!isSearchOpened" (click)="isSearchOpened=true">
            <ion-icon style="color: white" name="search"></ion-icon>
            </button>
          </ion-buttons>
-          <!-- <ion-list>
-                <ion-item *ngFor="let item of industryInformation;let i = index">
+           <ion-list>
+                <ion-item *ngFor="let item of items;let i = index" no-lines>
                     {{item.title}}
                 </ion-item>
-            </ion-list>  -->
+            </ion-list>  
         <!--   -->
-      <!-- <div style="color:black">Manual Industry</div> -->
-      <img  src="assets/imgs/login_new_image.png" alt="logo"/>
+      <!-- <div style="color:white">Manual Industry</div> -->
+      <!-- <img  src="assets/imgs/login_new_image.png" alt="logo"/> -->
 
       <!-- <div style="text-align: center; margin-bottom: 0vh;">
         <button ion-button clear style="text-transform: none; color: white;"  (click)="manualIndustry()"><div>{{ "manualIndustry" | translate }}</div></button> 
@@ -42,7 +44,7 @@
           </ion-refresher-content>
   </ion-refresher>
     <div style="text-align: left;">
-    <button ion-button small  round style="font-size: 12px;text-transform: none; background: coral;"  type="button">{{ "hotIndustry" | translate }}</button>
+    <button ion-button small  round style="font-size: 12px;text-transform: none; background: coral;"  type="button" (click)="doRefresh($event)">{{ "hotIndustry" | translate }}</button>
     </div>
     <ion-list  class="accordion-list" text-wrap>
     <!-- First Level -->

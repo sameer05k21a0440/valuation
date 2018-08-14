@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "759257827636-r5kqa1gm51k5q7dv8rsbdo5uoi2nfbgq.apps.googleusercontent.com",
+          "client_id": "759257827636-k25jjfs8hngb7eed1htom68d128lg0u9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "cn.rongdaitong.valuation",
-            "certificate_hash": "deb5173ddf9e0258ae3211f289a169278de40d1d"
+            "certificate_hash": "ddf207a5bd2c40e3635b8abed5dd7ee335d31e2d"
           }
         },
         {

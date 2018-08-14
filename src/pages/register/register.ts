@@ -56,7 +56,7 @@ export class RegisterPage {
             document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
             maxSecTime--;
             if(countryCode=='cn'){
-              (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
+              (<any>window).FirebasePlugin.verifyPhoneNumber('+86'+phoneNumber,60,(credential)=>{
                 this.verificationId=credential.verificationId;
                 console.log(this.verificationId+"verificationId")
               },function(error){
@@ -67,7 +67,7 @@ export class RegisterPage {
               toast.present();
             });
             }else if(countryCode=='in'){
-              (<any>window).FirebasePlugin.verifyPhoneNumber(+91+phoneNumber,60,(credential)=>{
+              (<any>window).FirebasePlugin.verifyPhoneNumber('+91'+phoneNumber,60,(credential)=>{
                 this.verificationId=credential.verificationId;
               },function(error){
                 const toast=this.toast.create({
@@ -77,7 +77,7 @@ export class RegisterPage {
               toast.present();
             });
             }else if(countryCode=='us'){
-              (<any>window).FirebasePlugin.verifyPhoneNumber(+1+phoneNumber,60,(credential)=>{
+              (<any>window).FirebasePlugin.verifyPhoneNumber('+1'+phoneNumber,60,(credential)=>{
                 this.verificationId=credential.verificationId;
               },function(error){
                 const toast=this.toast.create({

@@ -13,6 +13,8 @@ import 'rxjs/add/operator/do';
 import * as firebase  from 'firebase';
 import {Firebase} from '@ionic-native/firebase';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { RegisterPage } from '../register/register';
 import { ForgetPage } from '../forget/forget';
 import { MenuTabPage } from '../menu-tab/menu-tab';
@@ -47,9 +49,12 @@ export class CredentialPage {
   public showOTP='SEND-OTP'
   public unlockOTP:boolean=false;
   public resultUnlock:any;
+  public customText:any;
+
+ 
  
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private alertCtrl: AlertController,private sanitized: DomSanitizer,private toast:ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,private alertCtrl: AlertController,private translate: TranslateService,private toast:ToastController) {
     this.countryCode="cn";
     this.userLoginFormGroup=this.formBuilder.group({
       userName:new FormControl('',Validators.compose([Validators.required])),
@@ -59,11 +64,19 @@ export class CredentialPage {
     this.phoneLoginFormGroup=this.formBuilder.group({
       phoneNumber:new FormControl('',Validators.compose([Validators.required])),
       verificationCode:new FormControl('',Validators.compose([Validators.required])),
-      countryCode:new FormControl('',Validators.compose([Validators.required]))
+      countryCode:new FormControl('',Validators.compose([Validators.required])),
+      customText:new FormControl('',Validators.compose([Validators.required]))
+      
     });
   }
   
   ionViewDidLoad() {
+   this.customText=false;
+   // alert(this.unlockOTP);
+    // if(this.unlockOTP==false){
+     //const  switchTemp:any = document.getElementById("switch-handle");
+     //switchTemp[0].disabled=true;
+    // }
     console.log('ionViewDidLoad CredentialPage');
   }
   private showPassword() {
@@ -92,22 +105,26 @@ export class CredentialPage {
   }
 
 
-  private _htmlProperty: string ="<p><span style=\"background:url(../../assets/imgs/login-alert.png)repeat 0 0;width:100%;height:auto;background-repeat: no-repeat, repeat;\"></span> </p>"; 
-  public htmlProperty() {
-    return this.sanitized.bypassSecurityTrustHtml(this._htmlProperty);
-  }
+
 
   private userSubmit(){
+    let userTitle :any ={};
+    this.translate.get('logoutAlertCancel').subscribe(data=>{
+      userTitle.cancel=data;
+     });
+     this.translate.get('alertOK').subscribe(data=>{
+      userTitle.ok=data;
+     });
     let alert = this.alertCtrl.create({
       title: '<h3>Login Successfully!</h3>',
       //message: <any> this.htmlProperty(),
       message:'<img style="width:50%;height:10px; position:relative;"  src="assets/imgs/login-alert.png" alt="logo"/>',
       buttons: [
         {
-          text: 'Cancel'
+          text:userTitle.cancel
        },
         {
-          text: 'OK',
+          text: userTitle.ok,
           handler: () => {
             this.navCtrl.setRoot(MenuPage);
           }
@@ -120,16 +137,23 @@ export class CredentialPage {
     //this.navCtrl.push(HomePage);
   }
   private phoneSubmit(){
+    let phoneTitle :any ={};
+    this.translate.get('logoutAlertCancel').subscribe(data=>{
+      phoneTitle.cancel=data;
+     });
+     this.translate.get('alertOK').subscribe(data=>{
+      phoneTitle.ok=data;
+     });
     let alert = this.alertCtrl.create({
       title: '<h3>Login Successfully!</h3>',
       //message: <any> this.htmlProperty(),
       message:'<img style="width:50%;height:10px; position:relative;"  src="../../assets/imgs/login-alert.png" alt="logo"/>',
       buttons: [
         {
-          text: 'Cancel'
+          text: phoneTitle.cancel
        },
         {
-          text: 'OK',
+          text: phoneTitle.ok,
           handler: () => {
             let signInCredential =firebase.auth.PhoneAuthProvider.credential(this.verificationId,String(this.verificationCode));
             // sign in with the credential
@@ -153,11 +177,7 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
   var maxSecTime=60;
   var setIntrvl;
   this.resultUnlock = $('.switch-input').is(':checked')?'SEND-OTP':'OFF';
-  //var countryListCode =$('.select-view option:selected').text();
- // var countryCode = document.getElementById("ddlViewBy");
-  //var strUser =  countryCode.options(countryCode.selectedIndex).value; 
- //select-view
-  //alert(countryListCode);
+  alert(this.resultUnlock)
   if(String(phoneNumber) !="undefined" && this.resultUnlock=='SEND-OTP' && this.countryCode!="undefined"){
     this.unlockOTP = !this.unlockOTP;
      // Update the count down every 1 second
@@ -169,9 +189,9 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
           }else if(maxSecTime>0){
             document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
             maxSecTime--;
-           // alert(String(this.countryCode))
+           // alert(String(this.countryCode) getVerificationID  verifyPhoneNumber)
             if(countryCode=='cn'){
-              (<any>window).FirebasePlugin.verifyPhoneNumber(+86+phoneNumber,60,(credential)=>{
+              (<any>window).FirebasePlugin.verifyPhoneNumber('+86'+phoneNumber,60,(credential)=>{
                 this.verificationId=credential.verificationId;
                 console.log(this.verificationId+"verificationId")
               },function(error){
@@ -182,7 +202,7 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
               toast.present();
             });
           }else if(countryCode=='in'){
-            (<any>window).FirebasePlugin.verifyPhoneNumber(+91+phoneNumber,60,(credential)=>{
+            (<any>window).FirebasePlugin.verifyPhoneNumber('+91'+phoneNumber,60,(credential)=>{
               this.verificationId=credential.verificationId;
             },function(error){
               const toast=this.toast.create({
@@ -192,7 +212,7 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
             toast.present();
           });
           }else if(countryCode=='us'){
-            (<any>window).FirebasePlugin.verifyPhoneNumber(+1+phoneNumber,60,(credential)=>{
+            (<any>window).FirebasePlugin.verifyPhoneNumber('+1'+phoneNumber,60,(credential)=>{
               this.verificationId=credential.verificationId;
             },function(error){
               const toast=this.toast.create({
@@ -211,10 +231,68 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
     });
      toast.present();
   }else if(this.resultUnlock=='OFF' &&  String(phoneNumber)!="undefined"){
-    
+    clearInterval(setIntrvl);
    }
 
 }
 
+
+private getSwitchChecked(phoneNumber){
+  var maxSecTime=60;
+  var setIntrvl;
+  this.resultUnlock = $('.switch-input').is(':checked')?'SEND-OTP':'OFF';
+  if(this.resultUnlock=='SEND-OTP' && String(phoneNumber) !="undefined" && this.countryCode!="undefined" ){
+    //this.handleSwitchOTP(event,this.countryCode);
+
+    this.unlockOTP = !this.unlockOTP;
+    alert(phoneNumber + this.countryCode + this.resultUnlock)
+     // Update the count down every 1 second
+     setIntrvl = setInterval(function() {
+      // Update the count down every 1 second
+     // If the count down is finished, write some text 
+     if (maxSecTime == 0) {
+      clearInterval(setIntrvl);
+      document.getElementById("displayDiv").innerHTML = "EXPIRED";
+     }else if(maxSecTime>0){
+       document.getElementById("displayDiv").innerHTML = maxSecTime +"S" ;
+       maxSecTime--;
+      // alert(String(this.countryCode) getVerificationID  verifyPhoneNumber)
+       if(this.countryCode=='cn'){
+         (<any>window).FirebasePlugin.verifyPhoneNumber('+86'+phoneNumber,60,(credential)=>{
+           this.verificationId=credential.verificationId;
+           console.log(this.verificationId+"verificationId")
+         },function(error){
+           const toast=this.toast.create({
+                   message: 'Text Msg was not Send',
+                   duration:3000
+         });
+         toast.present();
+       });
+     }else if(this.countryCode=='in'){
+       (<any>window).FirebasePlugin.verifyPhoneNumber('+91'+phoneNumber,60,(credential)=>{
+         this.verificationId=credential.verificationId;
+       },function(error){
+         const toast=this.toast.create({
+                 message: 'Text Msg was not Send',
+                 duration:3000
+       });
+       toast.present();
+     });
+     }else if(this.countryCode=='us'){
+       (<any>window).FirebasePlugin.verifyPhoneNumber('+1'+phoneNumber,60,(credential)=>{
+         this.verificationId=credential.verificationId;
+       },function(error){
+         const toast=this.toast.create({
+                 message: 'Text Msg was not Send',
+                 duration:3000
+       });
+       toast.present();
+     });
+     }  
+ }
+},1000); //1 Sec
+}}
+
  
+  
 }

@@ -13,9 +13,11 @@ export class SearchDataProvider {
   constructor(public http: Http) {
     console.log('Hello SearchDataProvider Provider');
     this.items = [
-      {name: 'nonDailyGoods'},
-      {name: 'internetSoftware&Hardware'},
-      {name: 'electronicComponents'}
+      {title: 'nonDailyGoods'},
+      {title: 'internetSoftware&Hardware'},
+      {title: 'electronicComponents'},
+      {title: 'medical&HealthSupplies'}
+      
   ]
   }
 

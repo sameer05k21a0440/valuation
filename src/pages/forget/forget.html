@@ -79,7 +79,8 @@
                       </ion-item>
     </ion-list>
     <div style="position:relative;width:90%;">
-        <button ion-button full round  style="background:coral;text-transform: none;" type="submit" (click)="doValidateSubmitForget()"   [disabled]="!forgetFormGroup.valid" >{{"resetPassword"|translate}}</button>
+        <button ion-button full round block icon-left style="background:coral;text-transform: none;" type="submit" (click)="doValidateSubmitForget()"   [disabled]="!forgetFormGroup.valid" >
+        <ion-icon ios="ios-help" md="md-help"></ion-icon>{{"resetPassword"|translate}}</button>
          </div>
     </ion-col>
   </ion-row>

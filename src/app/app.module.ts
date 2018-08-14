@@ -25,6 +25,7 @@ import { UserLoginPage } from '../pages/user-login/user-login';
 import { RegisterPage } from '../pages/register/register'; 
 import { ForgetPage } from '../pages/forget/forget';
 import { ProfilePage } from  '../pages/profile/profile';
+import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
 import { LagoutPage } from '../pages/lagout/lagout';
 
 
@@ -39,6 +40,8 @@ import {Firebase} from '@ionic-native/firebase';
 import { SearchDataProvider } from '../providers/search-data/search-data';
 
 import * as firebase  from 'firebase';
+import { Camera } from '@ionic-native/camera';
+import { CameraProvider } from '../providers/camera-provider';
 import { ServiceProvider } from '../providers/service/service';
 
 import { TranslateModule,TranslateLoader  } from '@ngx-translate/core';
@@ -73,6 +76,7 @@ export function createTranslateLoader(http: HttpClient) {
     RegisterPage,
     LagoutPage,
     ProfilePage,
+    ProfileDetailsPage,
     SelectionConfirmationPage
   ],
   imports: [
@@ -106,6 +110,7 @@ export function createTranslateLoader(http: HttpClient) {
     RegisterPage,
     LagoutPage,
     ProfilePage,
+    ProfileDetailsPage,
     SelectionConfirmationPage
     
   ],
@@ -117,7 +122,9 @@ export function createTranslateLoader(http: HttpClient) {
     MenuPage,
     MenuTabPage,
     SearchDataProvider,
-    ServiceProvider
+    ServiceProvider,
+    CameraProvider,
+    Camera
   ]
 })
 export class AppModule {}

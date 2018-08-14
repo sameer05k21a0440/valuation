@@ -30,6 +30,7 @@ export class HomePage {
   items:any;
   isSearchOpened=false;
   industryInformation:any[];
+  
   data:Observable<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams,private app:App, private http:Http,private searchDataList:SearchDataProvider) {
     this.doRefresh(0);
@@ -69,8 +70,9 @@ export class HomePage {
     this.navCtrl.push(SelectionConfirmationPage);
   }
 
-  private onSearchIndustry( ) {
-    this.industryInformation=this.searchDataList.filterItems(this.searchQuery);
+  private onSearchIndustry(event ) {
+    //this.industryInformation[event]=this.searchDataList.filterItems(this.searchQuery);
+   // this.items=this.searchDataList.filterItems(this.searchQuery);
 }
  private doRefresh(refresher) {
   console.log('Begin async operation', refresher);

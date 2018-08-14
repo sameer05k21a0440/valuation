@@ -94,7 +94,8 @@
               </div>
             </ion-list>
             <div style="position:relative;width:90%;">
-         <button ion-button full round  style="background:coral;text-transform: none;"  type="submit" (click)="HomePage()"  [disabled]="!registerFormGroup.valid" >{{"register"|translate}}</button>
+         <button ion-button full round block icon-left  style="background:coral;text-transform: none;"  type="submit" (click)="HomePage()"  [disabled]="!registerFormGroup.valid" >
+         <ion-icon ios="ios-key" md="md-key"></ion-icon>{{"register"|translate}}</button>
             </div>
     </ion-col>
     </ion-row>

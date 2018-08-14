@@ -58,11 +58,20 @@
     "signOut":"Sign out",
     "profile" :"Profile",
 
+    "changePhotoTitle":"upload picture",
+    "changePhotoCamera":"Take photo",
+    "changePhotoImage":"Choose photo from Gallery",
+
     "user":"User",
     "general":"General",
     "language":"Language",
     "enableNotification":"Enable notifications",
     "other":"Other",
+    "profile.help":"Help",
+    "logoutAlert":"Are you sure?",
+    "logoutAlertMessage":"This will log you out of this application.",
+    "logoutAlertCancel":"Cancel",
+    "alertOK":"OK",
     "logout":"Logout"
 
    
