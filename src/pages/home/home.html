@@ -1,6 +1,6 @@
 
  <ion-header>
-     <ion-navbar>
+     <ion-navbar   color="coralRed">
    <button ion-button menuToggle left>
             <ion-icon style="color: white;margin-top:-3vh;" name="menu"></ion-icon>
             </button> 
@@ -9,8 +9,8 @@
          </ion-title>
          <ion-searchbar *ngIf="isSearchOpened" [showCancelButton]="true" 
           autocomplete="on"
-          placeholder="Serach for Trading"
-          (ionCancel)="isSearchOpened=false"  (ionInput)="onSearchIndustry($event)" [(ngModel)]="searchQuery" >
+          placeholder="Serach for Trading..."
+          (ionCancel)="isSearchOpened=true"  (ionInput)="onSearchIndustry($event)" [(ngModel)]="searchQuery" >
          </ion-searchbar> 
          <ion-buttons end style="margin-top:-5vh;">
            <button ion-button icon-only *ngIf="!isSearchOpened" (click)="isSearchOpened=true">
@@ -44,7 +44,7 @@
           </ion-refresher-content>
   </ion-refresher>
     <div style="text-align: left;">
-    <button ion-button small  round style="font-size: 12px;text-transform: none; background: coral;"  type="button" (click)="doRefresh($event)">{{ "hotIndustry" | translate }}</button>
+    <button ion-button small  round style="font-size: 12px;text-transform: none; background: coral;"  type="button">{{ "hotIndustry" | translate }}</button>
     </div>
     <ion-list  class="accordion-list" text-wrap>
     <!-- First Level -->

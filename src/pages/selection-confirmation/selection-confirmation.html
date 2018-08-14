@@ -40,27 +40,51 @@
   </ion-tags-input> 
 </ion-item> 
 <ion-item  no-lines text-wrap>
-<button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
-<button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
-<button ion-button clear item-start>|</button>
-<button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button> 
-</ion-item>   
-<ion-item  no-lines text-wrap>
-    <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
-    <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
-    <button ion-button clear item-start>|</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col ion-item>
+          <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+      </ion-col>
+      <ion-col ion-item>
+          <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+      </ion-col>
+      <ion-col ion-item>
+          <button ion-button clear item-start>|</button>
+        </ion-col>
+        <ion-col ion-item>
+            <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button> 
+          </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col ion-item>
+      <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+      </ion-col>
+      <ion-col ion-item>
+      <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+    </ion-col>
+    <ion-col ion-item>
+      <button ion-button clear item-start>|</button>
+      </ion-col>
+      <ion-col ion-item>
     <button ion-button clear item-start style="font-size: 12px;color:black;text-transform: none;" (click)="registerPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button> 
-  </ion-item> 
-  <ion-item no-lines text-wrap>
-  <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col ion-item>
+    <button ion-button clear item-start style="font-size: 12px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+      </ion-col>
+   <ion-col ion-item>
   <button ion-button clear item-start>|</button>
-  <button ion-button small round item-start style=" width:70px;font-size: 10px;background:coral;text-transform: none;" >BenchMark</button>
-  <!-- <div style="width:100%;height:100px;font-size: 10px;margin-bottom: -6vh; margin-left:-2.7vh;margin-right:0vh;">
-  <ion-tags-input  item-start   type="button" color="coral"   [(ngModel)]="selectionTags"  [once]="true">
-  </ion-tags-input>
-  </div> -->
-   <button ion-button clear item-start style="font-size: 10px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
-  </ion-item> 
+    </ion-col>
+    <ion-col ion-item>
+    <button ion-button small round item-start style="text-align: left; width:100%;font-size: 8px;background:coral;text-transform: none;" >BenchMark</button>
+    </ion-col>
+    <ion-col ion-item>
+    <button ion-button clear item-start style="font-size: 10px;color: black;text-transform: none;" (click)="forgetPage()"><div class="custom-wrap-text">{{ "benchmarkCompany" | translate }}</div></button>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-item>   
 </ion-list>
  <div  style="text-align:center;">
   <button ion-button round style="font-size: 14px; background:coral;text-transform: none;"   type="button" (click)="gotoNext()">{{ "btnNextStep" | translate }}</button>

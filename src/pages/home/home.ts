@@ -28,7 +28,7 @@ import { Observable } from 'rxjs/Rx';
 export class HomePage {
   searchQuery:string='';
   items:any;
-  isSearchOpened=false;
+  isSearchOpened=true;
   industryInformation:any[];
   
   data:Observable<any>;
@@ -72,7 +72,7 @@ export class HomePage {
 
   private onSearchIndustry(event ) {
     //this.industryInformation[event]=this.searchDataList.filterItems(this.searchQuery);
-   // this.items=this.searchDataList.filterItems(this.searchQuery);
+    this.items=this.searchDataList.filterItems(this.searchQuery);
 }
  private doRefresh(refresher) {
   console.log('Begin async operation', refresher);
