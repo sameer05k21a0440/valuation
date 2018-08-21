@@ -177,7 +177,6 @@ private handleSwitchOTP(phoneNumber:number,countryCode:any){
   var maxSecTime=60;
   var setIntrvl;
   this.resultUnlock = $('.switch-input').is(':checked')?'SEND-OTP':'OFF';
-  alert(this.resultUnlock)
   if(String(phoneNumber) !="undefined" && this.resultUnlock=='SEND-OTP' && this.countryCode!="undefined"){
     this.unlockOTP = !this.unlockOTP;
      // Update the count down every 1 second
