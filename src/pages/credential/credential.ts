@@ -245,7 +245,7 @@ private getSwitchChecked(phoneNumber){
     //this.handleSwitchOTP(event,this.countryCode);
 
     this.unlockOTP = !this.unlockOTP;
-    alert(phoneNumber + this.countryCode + this.resultUnlock)
+    //alert(phoneNumber + this.countryCode + this.resultUnlock)
      // Update the count down every 1 second
      setIntrvl = setInterval(function() {
       // Update the count down every 1 second

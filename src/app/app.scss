@@ -31,11 +31,9 @@ ion-icon {
       }
       &[class*="custom-qq"] {
         mask-image: url(../assets/imgs/qq.svg);
-        position: absolute;
       }
       &[class*="custom-weibo"] {
         mask-image: url(../assets/imgs/sina-weibo.svg);
-        position: absolute;
       }
   }
 

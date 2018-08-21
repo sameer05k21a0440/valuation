@@ -19,66 +19,62 @@
     </ion-header>
   <ion-content padding center text-center class="register_container">
   <form [formGroup]="registerFormGroup">
-   <ion-row>
-  <ion-col>
   <ion-list inset>
-  <ion-item class="register_rounded">
-      <ion-label  floating>
-            <ion-icon name="person" item-start></ion-icon> 
-            {{ "enterUserName" | translate }}
-              </ion-label> 
-              <ion-input autofocus clearInput type="text"  class="form-control" name="userName" [(ngModel)]="userName" 
-              formControlName="userName">
-            </ion-input>
-        </ion-item>
+  <ion-item class="register_rounded" style="padding:0px !important; font-size: 14px;margin-top:10px;background:none;border-bottom:1px solid white;box-shadow:none;">
+  <div item-content style="display: flex; justify-content: space-between; width: 100%">
+    <ion-icon item-start style="flex-grow: 0;" name="person"></ion-icon>
+    <div style="flex-grow: 1; text-align: center"> 
+                    <!-- <ion-label color="darkgray;" floating>
+                            {{ "enterUserName" | translate }}
+                                    </ion-label>  -->
+    <ion-input  clearInput type="text"  class="form-control" name="userName" [(ngModel)]="userName" 
+            formControlName="userName" placeholder="{{'enterUserName'|translate}}">
+    </ion-input>
+    </div>
+    </div>
+    </ion-item>
         <div *ngIf="!registerFormGroup.controls.userName.valid &&
           (registerFormGroup.controls.userName.dirty || submitted)" class="validator-error">
         {{ "enterValidUserName" | translate }}
       </div>
-      <ion-grid>
-        <ion-row>
-        <ion-col>
-    <ion-select item-start class="select-view"   style="width:175px; margin-left: -4vh; margin-top:8vh;"  [(ngModel)]="countryCode" formControlName="countryCode">
-        <ion-option value="cn">+86</ion-option>
-        <ion-option value="us">+1</ion-option>
-        <ion-option value="in">+91</ion-option>
+    <ion-item style="padding:0px !important; font-size: 14px;margin-top:10px;background:none;border-bottom:1px solid white;box-shadow:none;">
+    <div item-content style="display: flex; justify-content: space-between; width: 100%">
+    <ion-select style="flex-grow: 0; text-align: left;width:40%"   [(ngModel)]="countryCode" formControlName="countryCode">
+    <ion-option value="cn">+86</ion-option>
+    <ion-option value="us">+1</ion-option>
+    <ion-option value="in">+91</ion-option>
     </ion-select>
-          </ion-col> 
-      <ion-col>
-          <ion-item style=" width:200px; margin-left: -18vh; margin-top:0vh;">
-            <ion-label color="stable" floating>
-                <ion-icon name="phone-portrait" item-start></ion-icon>
-                {{ "enterMobileNumber" | translate }}</ion-label>
-          <ion-input  clearInput type="tel" class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
-          formControlName="phoneNumber">
-      </ion-input>
-      </ion-item>
-      </ion-col>
-      </ion-row>
-      </ion-grid>
+    <ion-icon style="flex-grow: 0; text-align:left;" name="phone-portrait" item-start></ion-icon> 
+    <div style="flex-grow: 1; text-align: center">
+    <ion-input autofocus clearInput type="tel" class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber" 
+    formControlName="phoneNumber" placeholder="{{'enterMobileNumber'|translate}}"></ion-input>     
+    </div>
+    </div>                
+    </ion-item>
      
-      <ion-item class="register_rounded">
-            <ion-label color="stable" floating>
-            <ion-icon name="text" item-start></ion-icon>
-            {{ "enterOTP" | translate }}</ion-label> 
-            <ion-input clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode"  formControlName="verificationCode"  >
-            </ion-input>
-            <button ion-button item-right small outline round color="danger" type="button" (click)="getVerificactionCode(countryCode,phoneNumber)">
-            <div  style="margin-right: 0vh; margin-bottom: 0vh;  font-size: 12px;"></div><p id="displayDiv" style="text-transform: none; width:40px; text-align: center;"></p>  
-            </button>
-
+  <ion-item class="register_rounded">
+    <div item-content style="display: flex; justify-content: space-between; width: 100%">
+    <ion-icon  item-start style="flex-grow: 0;" name="text"></ion-icon>
+    <div style="flex-grow: 1; text-align: center"> 
+    <ion-input   clearInput type="text" class="form-control" name="verificationCode" [(ngModel)]="verificationCode" 
+    formControlName="verificationCode" placeholder="{{'enterOTP'|translate}}"></ion-input>  
+    </div>
+      <button ion-button   small outline round color="danger" type="button" (click)="getVerificactionCode(countryCode,phoneNumber)">
+    <p id="displayDiv" style="flex-grow: 0; text-align: right;font-size: 10px;text-transform: none; width:40px; text-align: center;"></p>  
+    </button>
+    </div>
              <!-- <button class="verifyBtn"  ion-button item-end icon-start (click)="sendLoginCode(phoneNumber)" >Verify</button> -->
-            </ion-item>
-            <ion-item class="register_rounded">
-          <ion-label color="stable" floating>
-          <ion-icon name="lock" item-start></ion-icon> 
-          {{ "enterPassword" | translate }}</ion-label>
-          <ion-input  clearInput type="{{type}}" class="form-control" name="password" [(ngModel)]="password" 
-                    formControlName="password"></ion-input>
-          
-            <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="ios-eye-off-outline"></ion-icon></button>
-            <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>
-                    
+   </ion-item>
+    <ion-item class="register_rounded">
+    <div item-content style="display: flex; justify-content: space-between; width: 100%">
+        <ion-icon item-start style="flex-grow: 0;" name="lock"></ion-icon>
+        <div style="flex-grow: 1; text-align: center"> 
+                <ion-input  clearInput type="{{type}}" class="form-control" name="password" [(ngModel)]="password" 
+                formControlName="password" placeholder="{{'enterPassword'|translate}}"></ion-input>
+        </div>
+        <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon style="flex-grow: 0"  name="ios-eye-off-outline"></ion-icon></button>
+        <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()"> <ion-icon style="flex-grow: 0"  name="ios-eye-outline"></ion-icon></button>
+        </div>         
           </ion-item>
           <div *ngIf="registerFormGroup.controls.password.hasError('pattern') &&
           (registerFormGroup.controls.password.dirty || submitted)"
@@ -93,12 +89,10 @@
                </ion-tags-input>
               </div>
             </ion-list>
-            <div style="position:relative;width:90%;">
-         <button ion-button full round block icon-left  style="background:coral;text-transform: none;"  type="submit" (click)="HomePage()"  [disabled]="!registerFormGroup.valid" >
+            <div style="text-align: center; position:relative;width:95%; height:auto;text-transform: none;margin-top:0vh;margin-bottom: 0vh;">
+         <button ion-button full round block icon-left  style="background:linear-gradient(to right,#ff7f50 ,#ffb296);text-transform: none;"  type="submit" (click)="HomePage()"  [disabled]="!registerFormGroup.valid" >
          <ion-icon ios="ios-key" md="md-key"></ion-icon>{{"register"|translate}}</button>
             </div>
-    </ion-col>
-    </ion-row>
   </form>
  </ion-content>
 
