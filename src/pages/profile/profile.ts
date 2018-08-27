@@ -30,7 +30,6 @@ export class ProfilePage {
   };
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController,public alertCtrl:AlertController, public platform: Platform,public translate: TranslateService,private app:App, public cameraProvider: CameraProvider,public actionsheetCtrl: ActionSheetController,public loadingCtrl: LoadingController) {
     this.lang='zh';
-    //this.translate.setDefaultLang('zh');
     this.translate.use('zh');
 
   }

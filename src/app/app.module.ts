@@ -15,6 +15,7 @@ import { UserTabsPage } from '../pages/user-tab/user-tabs';
 import { MenuTabPage } from '../pages/menu-tab/menu-tab';
 import { MenuPage } from '../pages/menu/menu';
 import { AboutPage } from '../pages/about/about';
+import { StockDetailsPage } from '../pages/stock-details/stock-details';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
  
@@ -43,9 +44,13 @@ import * as firebase  from 'firebase';
 import { Camera } from '@ionic-native/camera';
 import { CameraProvider } from '../providers/camera-provider';
 import { ServiceProvider } from '../providers/service/service';
+import { StockListProvider } from '../providers/stockList-provider';
 
 import { TranslateModule,TranslateLoader  } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
+//import { ChartsModule } from 'ng2-charts';
 
 firebase.initializeApp({apiKey: "AIzaSyBcJ_MiFW_shD8kHqgoUOL6O2Lf1ERRmnQ",
 authDomain: "valuation-a2264.firebaseapp.com",
@@ -68,6 +73,7 @@ export function createTranslateLoader(http: HttpClient) {
     LoginPage,
     UserLoginPage,
     AboutPage,
+    StockDetailsPage,
     ContactPage,
     HomePage,
     MenuTabPage,
@@ -85,7 +91,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpModule,
     ReactiveFormsModule,
     IonTagsInputModule,
-   IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -102,6 +108,7 @@ export function createTranslateLoader(http: HttpClient) {
     UserLoginPage,
     LoginPage,
     AboutPage,
+    StockDetailsPage,
     ContactPage,
     HomePage,
     MenuTabPage,
@@ -123,6 +130,7 @@ export function createTranslateLoader(http: HttpClient) {
     MenuTabPage,
     SearchDataProvider,
     ServiceProvider,
+    StockListProvider,
     CameraProvider,
     Camera
   ]

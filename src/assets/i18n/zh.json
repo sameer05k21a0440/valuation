@@ -51,9 +51,13 @@
     "benchmark":"基准",
     "btnNextStep":"下一步",
 
+    "stockChart":"股票走势图",
+    "stockList":"股票清单",
+
 
     "home":"家",
     "about": "关于",
+   "stockDetails":"股票详情",
    "contact": "接触",
    "signOut":"退出",
    "profile" :"简况",

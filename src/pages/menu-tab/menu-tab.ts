@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
+import { StockDetailsPage } from '../stock-details/stock-details';
 import { ContactPage } from '../contact/contact';
 import { ProfilePage } from '../profile/profile';
 
@@ -20,6 +21,7 @@ export class MenuTabPage {
 
   homeRoot = HomePage
   aboutRoot = AboutPage
+  stockDetailsRoot=StockDetailsPage
   contactsRoot = ContactPage
   profileRoot=ProfilePage
 

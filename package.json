@@ -31,6 +31,7 @@
     "@ionic/storage": "2.1.3",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^3.0.1",
+    "@types/echarts": "^4.1.1",
     "@types/jquery": "^3.3.4",
     "cordova-android": "7.0.0",
     "cordova-browser": "^5.0.3",
@@ -42,6 +43,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-sms-plugin": "^0.1.11",
+    "echarts": "^4.1.0",
     "firebase": "^5.2.0",
     "google-libphonenumber": "^3.1.8",
     "ionic-angular": "3.9.2",
@@ -49,6 +51,7 @@
     "ionicons": "3.0.0",
     "jquery": "^3.3.1",
     "mathjs": "^5.0.3",
+    "ng2-charts": "^1.6.0",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"

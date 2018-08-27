@@ -49,11 +49,15 @@
       "benchmark":"BenchMark",
       "btnNextStep":"Next Step",
 
+      "stockChart":"Stock Chart",
+      "stockList":"Stock List",
+
  
 
 
     "home":"Home",
     "about": "About",
+    "stockDetails":"Stock Details",
     "contact": "Contact",
     "signOut":"Sign out",
     "profile" :"Profile",
