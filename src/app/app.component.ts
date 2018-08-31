@@ -24,7 +24,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = MenuPage;
+  rootPage:any = CredentialPage;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private events:Events,private translate:TranslateService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

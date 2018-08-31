@@ -1,34 +1,39 @@
-<!--
-  Generated template for the StockDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar> 
+  <ion-navbar color="coralRed">
       <button ion-button menuToggle left>
-      <ion-icon   name="menu"></ion-icon>
-      </button>
-    <ion-title> {{ "stockDetails" | translate }}</ion-title>
+          <ion-icon style="color: white;" name="menu"></ion-icon>
+          </button>  
+      <ion-title> {{ "stockDetails" | translate }}</ion-title>
   </ion-navbar>
- 
 </ion-header>
-
 <ion-content padding>
+
 <ion-card>
 <ion-card-header>
-<ion-segment [(ngModel)]="stockChartPage" color="coralRed">
-<ion-segment-button value="stockChart">
-  <span style="text-transform: none;"> {{ 'stockChart' | translate }}</span>
-  </ion-segment-button>
-  <ion-segment-button value="stockList">
-          <span style="text-transform: none;">{{ 'stockList' | translate }}</span>
-          </ion-segment-button>
-    </ion-segment>
- </ion-card-header> 
-<ion-card-content>
-    <ion-item text-wrap>
-        <div item-content style="display: flex; justify-content: space-between; width: 100%">
+<ion-segment [(ngModel)]="stockChartPage" color="coralRed"> 
+    <ion-segment-button value="stockChart">
+      <span style="text-transform: none;"> {{ 'stockChart' | translate }}</span>
+      </ion-segment-button>
+      <ion-segment-button value="stockList">
+      <span style="text-transform: none;">{{ 'stockList' | translate }}</span>
+      </ion-segment-button>
+</ion-segment> 
+</ion-card-header>
+<ion-card-content> 
+<ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+</ion-refresher>
+<ion-list>
+<ion-item>
+    <!-- <div item-content style="display: flex; justify-content: space-between; width: 100%"> -->
+    <!-- <div class="nav-left-menu"  style="flex-grow: 0; text-align: left;">
+     <ion-list> 
+    <ion-item>
         <ion-label>Toppings</ion-label>
         <ion-select [(ngModel)]="toppings" multiple="true">
           <ion-option>Bacon</ion-option>
@@ -38,44 +43,57 @@
           <ion-option>Pepperoni</ion-option>
           <ion-option>Sausage</ion-option>
         </ion-select>
-      
-        <div style="flex-grow: 1; text-align: center"> 
- <!-- /*=======User Login page Segments==== */ -->
- <div    [ngSwitch]="stockChartPage">
-    <ion-list *ngSwitchCase="'stockChart'">
-    <canvas id="lineChart"></canvas>
+    </ion-item>
+    <ion-item>
+        <ion-label>Toppings</ion-label>
+        <ion-select [(ngModel)]="toppings" multiple="true">
+          <ion-option>fdf</ion-option>
+          <ion-option>fhgf</ion-option>
+          <ion-option>Extra Cheese</ion-option>
+          <ion-option>Mushrooms</ion-option>
+          <ion-option>Pepperoni</ion-option>
+          <ion-option>Sausage</ion-option>
+        </ion-select>
+    </ion-item>
+  </ion-list>
+  </div> -->
+
+  <!-- /*=======User Login page Segments==== */ -->
+<div    [ngSwitch]="stockChartPage" style="flex-grow: 0; text-align: left;">
+<ion-list *ngSwitchCase="'stockChart'">
+  <form>
+  <ion-list inset>
+    <ion-item>
+    <div id="lineChart" style="width:100%;height:350px;" my-auto-fit-layout></div>  
+    <!--  -->
+    </ion-item>
     </ion-list>
-  <!-- /*=======Phone Login Page */ -->
-  <ion-list *ngSwitchCase="'stockList'">
-    <ion-list  *ngFor="let item of stockListInfo; let i = index">
+  </form>
+  </ion-list>
+<!-- /*=======Stock Item List Page */ -->
+<ion-list *ngSwitchCase="'stockList'">
+    <ion-list inset>
     <ion-grid>
-    <ion-row>
-    <ion-col>
-      {{item.Stock_date}}
-    </ion-col>
-    <ion-col>
-      {{item.stock_Company}}
-    </ion-col>
-    <ion-col>
-        {{item.stock_status}}
-      </ion-col>
-    <ion-col>
-          {{item.stock_trading}}
-    </ion-col>
-     </ion-row>
+    <ion-row center>
+     <ion-col>Date</ion-col> <ion-col>Company</ion-col><ion-col>Stock Status</ion-col><ion-col>Stock Trading</ion-col>
+    </ion-row>
+    <ion-row center  *ngFor="let item of stockListInfo;">
+    <ion-col><span style="color:gray">{{item.Stock_date}}</span></ion-col>
+    <ion-col>{{item.stock_Company}}</ion-col>
+    <ion-col>{{item.stock_status}}</ion-col>
+    <ion-col>{{item.stock_trading}}</ion-col>
+    </ion-row>
     </ion-grid>
     </ion-list>
-  
-     </ion-list>
-       </div>
-      </div></div>
-      </ion-item>
+    </ion-list>
+</div>
+  <!-- </div> -->
+</ion-item>
+</ion-list>
+
+
 
 
 </ion-card-content>
-
-</ion-card>
-
-
-
+ </ion-card>
 </ion-content>
